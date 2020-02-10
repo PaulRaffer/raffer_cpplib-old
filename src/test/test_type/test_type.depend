@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1581363141 source:c:\users\paul\paul\projekte\raffer_cpplib\src\test\test_type\main.cpp
+	"../../lib/type/type.hpp"
+	<iostream>
+	<iomanip>
+	<complex>
+
+1581362825 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\type\type.hpp
+	<string>
+	<sstream>
+
