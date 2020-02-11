@@ -3,8 +3,6 @@
 #include <fstream>
 #include <vector>
 
-#define USE_BOOST_REGEX
-
 #include "../../lib/regex/call/call.hpp"
 #include "../../lib/regex/call/call_std.hpp"
 #include "../../lib/type/type.hpp"
@@ -143,40 +141,26 @@ int main()
             return L"";/*TODO*/
         };
 
-    #ifdef USE_BOOST_REGEX
-        func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*=\s*([^\n]+)$)", std_func_func });
-        func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*=\s*(std::\S+))", std_func_func_std });
-    #else
-        func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*=\s*(.+))", std_func_func });
-        func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*=\s*(std::\S+))", std_func_func_std });
-    #endif
 
-    //func.at(3).insert({ R"((?<statement>\{(?&statement)*\}|(if)(boolean)then(?&statement)end))", std_basic_statement });
-    //func.at(3).insert({ R"((if)(boolean)then(?&statement)end))", std_basic_statement });
+    func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*=\s*(.+))", std_func_func });
+    func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*=\s*(std::\S+))", std_func_func_std });
+    // for boost:
+    //func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*=\s*([^\n]+)$)", std_func_func });
+    //func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*=\s*(std::\S+))", std_func_func_std });
+
     func.at(7).insert({ L"script\\s*\"([^\"]*)\"", std_func_script });
     func.at(25).insert({ L"print\\s*all", std_basic_func_printall });
 
 
-
-
-
-
-
-    std::wstring input;
     #ifdef DEBUG
         std::wcout <<
     #endif
 
-    #ifdef USE_BOOST_REGEX
-        call<Char>(LR"(script "script/init (boost).script")", func, regex_namespace::wsmatch{});
-    #else
-        call<Char>(LR"(script "script/init (std).script")", func, regex_namespace::wsmatch{});
-    #endif
+    call<Char>(LR"(script "script/init (std).script")", func, regex_namespace::wsmatch{});
+    // for boost:
+    //call<Char>(LR"(script "script/init (boost).script")", func, regex_namespace::wsmatch{});
 
-    //#ifdef DEBUG
-        //std::cout << "<<< " << output << std::endl << std::endl;
-        //std_basic_func_printall(regex_namespace::wsmatch{});
-    //#endif
+    std::wstring input;
 
     while (true)
     {
