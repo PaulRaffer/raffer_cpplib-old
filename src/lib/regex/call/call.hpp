@@ -8,11 +8,11 @@
 #include <unordered_map>
 
 
-//#include <regex>
-//namespace regex_namespace = std;
-// or for boost:
-#include <boost/regex.hpp>
-namespace regex_namespace = boost;
+#include <regex>
+namespace regex_namespace = std;
+// for boost:
+//#include <boost/regex.hpp>
+//namespace regex_namespace = boost;
 
 
 template <typename Char>
