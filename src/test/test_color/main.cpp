@@ -1,7 +1,6 @@
 #include <iostream>
 #include <complex>
 #include "../../lib/color/color.hpp"
-#include "../../lib/type/type.hpp"
 
 
 
