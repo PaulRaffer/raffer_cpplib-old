@@ -2,6 +2,9 @@
 
 #include <cstdlib>
 
+namespace raffer
+{
+
 auto clear_screen() -> int
 {
     #if defined(__linux__) || (defined(__APPLE__) && defined(__MACH__))
@@ -13,3 +16,4 @@ auto clear_screen() -> int
     #endif
 }
 
+};

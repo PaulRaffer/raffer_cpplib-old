@@ -13,9 +13,11 @@
 
 #include "call.hpp"
 
+namespace raffer
+{
+
 constexpr int precision = 15;
 using Char = wchar_t;
-
 
 [[nodiscard]] auto std_basic_func_ignore(Basic_smatch<Char> const & arg) -> std::basic_string<Char>;
 
@@ -59,5 +61,7 @@ using Char = wchar_t;
 [[nodiscard]] auto std_math_func_ceil   (Basic_smatch<Char> const & arg) -> std::basic_string<Char>;
 
 [[nodiscard]] auto std_math_func_sin    (Basic_smatch<Char> const & arg) -> std::basic_string<Char>;
+
+};
 
 #endif // CALL_STD_H

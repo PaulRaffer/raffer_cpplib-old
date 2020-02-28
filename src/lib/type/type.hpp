@@ -4,6 +4,9 @@
 #include <string>
 #include <sstream>
 
+namespace raffer
+{
+
 template <typename Out = char, typename In>
 [[nodiscard]]
 constexpr auto to_string(In const value, int const precision = 6) -> std::basic_string<Out>;
@@ -17,5 +20,7 @@ constexpr auto to_string(In const value, int const precision) -> std::basic_stri
     oss << value;
     return oss.str();
 }
+
+};
 
 #endif // TYPE_HPP

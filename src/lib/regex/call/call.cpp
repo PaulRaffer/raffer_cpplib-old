@@ -1,5 +1,8 @@
 #include "call.hpp"
 
+namespace raffer
+{
+
 template <typename Char = char>
 auto call(
     Function_body<Char> const & _this,
@@ -60,3 +63,5 @@ template auto call(
     Ordered_functions<wchar_t> const & functions,
     Basic_smatch<wchar_t> const & arg)
     -> std::basic_string<wchar_t>;
+
+};

@@ -3,6 +3,8 @@
 
 int main()
 {
+    using namespace raffer;
+
     std::cout << "Hallo";
     clear_screen();
     std::cout << " Welt!\n";
