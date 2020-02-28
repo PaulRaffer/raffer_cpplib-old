@@ -3,6 +3,9 @@
 
 #include <iostream>
 
+namespace raffer
+{
+
 template <typename T>
 class Color
 {
@@ -13,17 +16,26 @@ public:
     constexpr Color(T brightness);
 
     constexpr auto get_red() const -> T;
-    constexpr auto get_green() const -> T;
-    constexpr auto get_blue() const -> T;
+    constexpr void set_red(T red);
 
-    friend auto operator+(Color<auto> const & color0, Color<auto> const & color1);
+    constexpr auto get_green() const -> T;
+    constexpr void set_green(T green);
+
+    constexpr auto get_blue() const -> T;
+    constexpr void set_blue(T blue);
+
+    friend auto operator+(Color<auto> const & lhs, Color<auto> const & rhs);
+    friend auto operator-(Color<auto> const & lhs, Color<auto> const & rhs);
+    friend auto operator*(Color<auto> const & lhs, Color<auto> const & rhs);
+    friend auto operator/(Color<auto> const & lhs, Color<auto> const & rhs);
 
     friend auto operator<<(std::ostream & os, Color<auto> const & color) -> std::ostream &;
 };
 
+};
 
-
-
+namespace raffer
+{
 
 template <typename T>
 constexpr Color<T>::Color(T red, T green, T blue) : red{red}, green{green}, blue{blue} {}
@@ -31,17 +43,38 @@ constexpr Color<T>::Color(T red, T green, T blue) : red{red}, green{green}, blue
 template <typename T>
 constexpr Color<T>::Color(T brightness) : red{brightness}, green{brightness}, blue{brightness} {}
 
+
 template <typename T>
 constexpr auto Color<T>::get_red() const -> T { return red; }
 template <typename T>
+constexpr void Color<T>::set_red(T red) { this->red = red; }
+
+template <typename T>
 constexpr auto Color<T>::get_green() const -> T { return green; }
 template <typename T>
+constexpr void Color<T>::set_green(T green) { this->green = green; }
+
+template <typename T>
 constexpr auto Color<T>::get_blue() const -> T { return blue; }
+template <typename T>
+constexpr void Color<T>::set_blue(T blue) { this->blue = blue; }
 
 
-auto operator+(Color<auto> const & color0, Color<auto> const & color1)
+auto operator+(Color<auto> const & lhs, Color<auto> const & rhs)
 {
-    return Color{color0.red + color1.red, color0.green + color1.green, color0.blue + color1.blue};
+    return Color{lhs.red + rhs.red, lhs.green + rhs.green, lhs.blue + rhs.blue};
+}
+auto operator-(Color<auto> const & lhs, Color<auto> const & rhs)
+{
+    return Color{lhs.red - rhs.red, lhs.green - rhs.green, lhs.blue - rhs.blue};
+}
+auto operator*(Color<auto> const & lhs, Color<auto> const & rhs)
+{
+    return Color{lhs.red * rhs.red, lhs.green * rhs.green, lhs.blue * rhs.blue};
+}
+auto operator/(Color<auto> const & lhs, Color<auto> const & rhs)
+{
+    return Color{lhs.red / rhs.red, lhs.green / rhs.green, lhs.blue / rhs.blue};
 }
 
 auto operator<<(std::ostream & os, Color<auto> const & color) -> std::ostream &
@@ -49,8 +82,10 @@ auto operator<<(std::ostream & os, Color<auto> const & color) -> std::ostream &
     return os << "(" << color.red << "," << color.green << "," << color.blue << ")";
 }
 
+};
 
-
+namespace raffer
+{
 
 // CSS Level 1
 constexpr auto black                = Color{0x00};
@@ -208,5 +243,6 @@ constexpr auto yellowgreen          = Color{0x9A, 0xCD, 0x32};
 // CSS Color Module Level 4
 constexpr auto rebeccapurple        = Color{0x66, 0x33, 0x99};
 
+};
 
 #endif // COLOR_HPP
