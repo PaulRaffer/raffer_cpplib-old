@@ -1,9 +1,10 @@
 #include "call_std.hpp"
 
 #include "../../type/type.hpp"
-
 #include <cmath>
 
+namespace raffer
+{
 
 auto std_basic_func_ignore(Basic_smatch<Char> const & arg) -> std::basic_string<Char>
 {
@@ -218,12 +219,4 @@ auto std_math_func_sin    (Basic_smatch<Char> const & arg) -> std::basic_string<
     return to_string<Char>(sin(x), precision);
 }
 
-
-
-
-
-
-
-
-
-
+};

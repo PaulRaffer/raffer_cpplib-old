@@ -12,6 +12,8 @@
 #include <fcntl.h>
 #include <io.h>
 
+using namespace raffer;
+
 Unordered_functions<Char> std_func =
 {
     { L"std::basic::func::if", std_basic_func_if },
