@@ -33,8 +33,8 @@
 			<Add option="-std=c++17" />
 			<Add option="-fconcepts" />
 		</Compiler>
-		<Unit filename="../../lib/experimental/color/color.cpp" />
-		<Unit filename="../../lib/experimental/color/color.hpp" />
+		<Unit filename="../../lib/color/color.cpp" />
+		<Unit filename="../../lib/color/color.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
