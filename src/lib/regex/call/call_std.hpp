@@ -26,7 +26,7 @@ using Char = wchar_t;
 [[nodiscard]] auto std_basic_func_system(Basic_smatch<Char> const & arg) -> std::basic_string<Char>;
 
 [[nodiscard]] auto std_basic_func_print (Basic_smatch<Char> const & arg) -> std::basic_string<Char>;
-[[nodiscard]] auto std_basic_func_printf(Basic_smatch<Char> const & arg) -> std::basic_string<Char>;
+[[nodiscard]] auto std_basic_func_fprint(Basic_smatch<Char> const & arg) -> std::basic_string<Char>;
 
 [[nodiscard]] auto std_basic_func_arg1  (Basic_smatch<Char> const & arg) -> std::basic_string<Char>;
 

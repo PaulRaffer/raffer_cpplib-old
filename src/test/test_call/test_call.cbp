@@ -30,7 +30,7 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add option="-std=c++17" />
+			<Add option="-std=c++1z" />
 			<Add directory="C:/boost_1_69_0" />
 		</Compiler>
 		<Linker>

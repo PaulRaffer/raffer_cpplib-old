@@ -3,9 +3,10 @@
 #include <fstream>
 #include <vector>
 
+//#include "../../lib/type/type.hpp"
 #include "../../lib/regex/call/call.hpp"
 #include "../../lib/regex/call/call_std.hpp"
-#include "../../lib/type/type.hpp"
+
 
 #include <string>
 
@@ -19,7 +20,7 @@ Unordered_functions<Char> std_func =
     { L"std::basic::func::if", std_basic_func_if },
     { L"std::basic::func::system", std_basic_func_system },
     { L"std::inout::func::print", std_basic_func_print },
-    { L"std::inout::func::printf", std_basic_func_printf },
+    { L"std::inout::func::fprint", std_basic_func_fprint },
 
     { L"std::math::func::rm[-\\+]", std_math_func_rmsign },
     { L"std::basic::func::arg1", std_basic_func_arg1 },
@@ -144,8 +145,8 @@ int main()
         };
 
 
-    func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*=\s*(.+))", std_func_func });
-    func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*=\s*(std::\S+))", std_func_func_std });
+    func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(.+))", std_func_func });
+    func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(std::\S+))", std_func_func_std });
     // for boost:
     //func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*=\s*([^\n]+)$)", std_func_func });
     //func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*=\s*(std::\S+))", std_func_func_std });
@@ -158,7 +159,7 @@ int main()
         std::wcout <<
     #endif
 
-    call<Char>(LR"(script "script/init (std).script")", func, regex_namespace::wsmatch{});
+    call<Char>(LR"(script "script/std/md_to_html.script")", func, regex_namespace::wsmatch{});
     // for boost:
     //call<Char>(LR"(script "script/init (boost).script")", func, regex_namespace::wsmatch{});
 
