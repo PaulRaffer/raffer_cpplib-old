@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1583618959 source:c:\users\paul\paul\projekte\raffer_cpplib\src\test\test_point\main.cpp
+	"../../lib/experimental/point/point.hpp"
+
+1583618985 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\experimental\point\point.hpp
+	<iostream>
+
