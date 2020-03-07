@@ -1,0 +1,74 @@
+PRIORITY  1 _ = \\s*
+
+PRIORITY  2 TYPE = PRIORITY(3)
+PRIORITY  2 FUNC = PRIORITY(30)
+
+PRIORITY  3 sign    = (?:-|\\+)
+PRIORITY  3 number  = \\d*\\.?\\d+
+PRIORITY  3 String  = "([^"]*)"
+PRIORITY  3 boolean = [01]
+
+PRIORITY  6 system\s*String = std::basic::func::system
+
+PRIORITY  7 (?<!\d)pi|π(?!\d) = std::math::const::pi
+PRIORITY  7 (?<!\d)e(?!\d)    = std::math::const::e
+PRIORITY  7 (?<!\d)c(?!\d)    = std::phys::const::c
+
+PRIORITY  7 true  = std::logic::const::true
+PRIORITY  7 false = std::logic::const::false
+
+PRIORITY  8 (sign)_(sign)       = std::math::func::rmsign
+PRIORITY  8  \(_(sign?number)_\) = std::basic::func::arg1
+PRIORITY  8 \[_(sign?number)_\] = std::basic::func::arg1
+
+PRIORITY  9 ⌊_(sign?number)_⌋    = std::math::func::floor
+PRIORITY  9 ⌈_(sign?number)_⌉    = std::math::func::ceil
+
+PRIORITY 13 (number)_\^_(sign?number)   = std::math::func::pow
+PRIORITY 13 (number)_root_(sign?number) = std::math::func::root
+PRIORITY 13 (number)_log_(sign?number)  = std::math::func::log
+PRIORITY 14 (number)_\*_(sign?number)   = std::math::func::mult
+PRIORITY 14 (number)_/_(sign?number)    = std::math::func::div
+PRIORITY 14 (number)_mod_(sign?number)  = std::math::func::mod
+PRIORITY 15 (sign?number)_\+_(number)   = std::math::func::add
+PRIORITY 15 (sign?number)_-_(number)    = std::math::func::sub
+
+PRIORITY 19 (?:¬|not)_(boolean)                 = std::logic::func::not
+PRIORITY 20 (boolean)_(?:∧|and)_(boolean)       = std::logic::func::and
+PRIORITY 20 (boolean)_(?:∨ |or)_(boolean)       = std::logic::func::or
+PRIORITY 20 (boolean)_(?:⊼|nand)_(boolean)      = std::logic::func::nand
+PRIORITY 20 (boolean)_(?:⊽|nor)_(boolean)       = std::logic::func::nor
+PRIORITY 21 (boolean)_(?:⇹|↮|⊻|⊕|xor)_(boolean) = std::logic::func::xor
+PRIORITY 21 (boolean)_(?:↔|xnor)_(boolean)      = std::logic::func::xnor
+
+PRIORITY 23 (?:∿|sin)_(number) = std::math::func::sin
+
+PRIORITY 22 (number)\.\.+(number) = std::basic::func::range
+
+PRIORITY 25 print_(number) = std::inout::func::print
+PRIORITY 25 print_String   = std::inout::func::print
+
+PRIORITY 24 String_<<_String = std::inout::func::printf
+
+PRIORITY 25 ² = ^2
+PRIORITY 25 ³ = ^3
+
+PRIORITY 25 ¼ = 1/4
+PRIORITY 25 ½ = 1/2
+PRIORITY 25 ¾ = 3/4
+PRIORITY 25 ⅐ = 1/7
+PRIORITY 25 ⅑ = 1/9
+PRIORITY 25 ⅒ = 1/10
+PRIORITY 25 ⅓ = 1/3
+PRIORITY 25 ⅔ = 2/3
+PRIORITY 25 ⅕ = 1/5
+PRIORITY 25 ⅖ = 2/5
+PRIORITY 25 ⅗ = 3/5
+PRIORITY 25 ⅘ = 4/5
+PRIORITY 25 ⅙ = 1/6
+PRIORITY 25 ⅚ = 5/6
+PRIORITY 25 ⅛ = 1/8
+PRIORITY 25 ⅜ = 3/8
+PRIORITY 25 ⅝ = 5/8
+PRIORITY 25 ⅞ = 7/8
+PRIORITY 25 ↉ = 0/3

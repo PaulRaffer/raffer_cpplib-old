@@ -1,7 +1,8 @@
 #include "call_std.hpp"
 
-#include "../../type/type.hpp"
 #include <cmath>
+#include "../../type/type.hpp"
+
 
 namespace raffer
 {
@@ -38,16 +39,19 @@ auto std_basic_func_print (Basic_smatch<Char> const & arg) -> std::basic_string<
     std::wcout << arg.str(1);
     return arg.str(1);
 }
-auto std_basic_func_printf(Basic_smatch<Char> const & arg) -> std::basic_string<Char>
+
+
+
+auto std_basic_func_fprint(Basic_smatch<Char> const & arg) -> std::basic_string<Char>
 {
-    /*std::ofstream file{arg.str(1)};
-    if(!file) ;
+    std::ofstream file{wstring_to_string(arg.str(1))};
+    if(!file);
     else
     {
-        file << arg.str(2);
+        file << wstring_to_string(arg.str(2));
         //ret = "\"" + arg.at(1) + "\"<<";
         file.close();
-    }*/
+    }
     return L"";
 }
 
