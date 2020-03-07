@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1583528705 source:c:\users\paul\paul\projekte\raffer_cpplib\src\test\test_uri\main.cpp
+	<regex>
+	<iostream>
+
