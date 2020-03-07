@@ -1,9 +1,8 @@
 # depslib dependency file v1.0
-1582910944 source:c:\users\paul\paul\projekte\raffer_cpplib\src\test\test_color\main.cpp
+1583614997 source:c:\users\paul\paul\projekte\raffer_cpplib\src\test\test_color\main.cpp
 	<iostream>
 	<complex>
 	"../../lib/color/color.hpp"
-	"../../lib/type/type.hpp"
 
 1582906232 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\experimental\color\color.hpp
 	<iostream>
@@ -15,9 +14,9 @@
 	<string>
 	<sstream>
 
-1582904494 source:c:\users\paul\paul\projekte\raffer_cpplib\src\lib\color\color.cpp
+1582911586 source:c:\users\paul\paul\projekte\raffer_cpplib\src\lib\color\color.cpp
 	"color.hpp"
 
-1582906860 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\color\color.hpp
+1583615217 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\color\color.hpp
 	<iostream>
 
