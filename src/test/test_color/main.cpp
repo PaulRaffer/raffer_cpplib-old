@@ -36,4 +36,5 @@ color1 += color2;
     A d = 8 + b;
 
     std::cout << c.i << ", " << d.i << std::endl;*/
+
 }

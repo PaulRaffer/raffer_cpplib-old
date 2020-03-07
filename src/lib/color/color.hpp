@@ -12,20 +12,19 @@ class Color
     T red, green, blue;
 
 public:
-    constexpr Color();
     constexpr Color(T red, T green, T blue);
-    constexpr Color(T brightness);
+    constexpr Color(T brightness = 0);
     template <typename T1> constexpr Color(Color<T1> const & color);
 
 
     constexpr auto get_red() const;
-    constexpr void set_red(T red);
+    void set_red(T red);
 
     constexpr auto get_green() const;
-    constexpr void set_green(T green);
+    void set_green(T green);
 
     constexpr auto get_blue() const;
-    constexpr void set_blue(T blue);
+    void set_blue(T blue);
 
 
     friend constexpr auto operator+(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const;
@@ -71,7 +70,6 @@ public:
 namespace raffer
 {
 
-template <typename T> constexpr Color<T>::Color() : red{0}, green{0}, blue{0} {}
 template <typename T> constexpr Color<T>::Color(T red, T green, T blue) : red{red}, green{green}, blue{blue} {}
 template <typename T> constexpr Color<T>::Color(T brightness) : red{brightness}, green{brightness}, blue{brightness} {}
 template <typename T> template <typename T1> constexpr Color<T>::Color(Color<T1> const & color) : red(color.get_red()), green(color.get_green()), blue(color.get_blue()) {}
@@ -80,13 +78,13 @@ template <typename T> template <typename T1> constexpr Color<T>::Color(Color<T1>
 
 
 template <typename T> constexpr auto Color<T>::get_red() const { return red; }
-template <typename T> constexpr void Color<T>::set_red(T red) { this->red = red; }
+template <typename T> void Color<T>::set_red(T red) { this->red = red; }
 
 template <typename T> constexpr auto Color<T>::get_green() const { return green; }
-template <typename T> constexpr void Color<T>::set_green(T green) { this->green = green; }
+template <typename T> void Color<T>::set_green(T green) { this->green = green; }
 
 template <typename T> constexpr auto Color<T>::get_blue() const { return blue; }
-template <typename T> constexpr void Color<T>::set_blue(T blue) { this->blue = blue; }
+template <typename T> void Color<T>::set_blue(T blue) { this->blue = blue; }
 
 
 
