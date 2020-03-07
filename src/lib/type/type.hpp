@@ -4,6 +4,9 @@
 #include <string>
 #include <sstream>
 
+#include <locale>
+#include <codecvt>
+
 namespace raffer
 {
 
@@ -19,6 +22,16 @@ constexpr auto to_string(In const value, int const precision) -> std::basic_stri
     oss.precision(precision);
     oss << value;
     return oss.str();
+}
+
+
+auto string_to_wstring(std::string const & str)
+{
+    return std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(str);
+}
+auto wstring_to_string(std::wstring const & wstr)
+{
+    return std::wstring_convert<std::codecvt_utf8<wchar_t>>().to_bytes(wstr);
 }
 
 };
