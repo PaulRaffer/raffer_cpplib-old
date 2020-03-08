@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1583692743 source:c:\users\paul\paul\projekte\raffer_cpplib\src\test\test_logic\main.cpp
+	<iostream>
+	<functional>
+	<type_traits>
+	"../../lib/logic/logic.hpp"
+	"../../lib/overloaded/overloaded.hpp"
+
+1583692366 source:c:\users\paul\paul\projekte\raffer_cpplib\src\lib\logic\logic.cpp
+	"logic.hpp"
+
+1583692366 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\logic\logic.hpp
+
+1583692735 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\overloaded\overloaded.hpp
+
