@@ -17,54 +17,53 @@ public:
     template <typename T1> constexpr Color(Color<T1> const & color);
 
 
-    constexpr auto get_red() const;
+    [[nodiscard]] constexpr auto get_red() const;
     void set_red(T red);
 
-    constexpr auto get_green() const;
+    [[nodiscard]] constexpr auto get_green() const;
     void set_green(T green);
 
-    constexpr auto get_blue() const;
+    [[nodiscard]] constexpr auto get_blue() const;
     void set_blue(T blue);
-
-
-    friend constexpr auto operator+(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const;
-    friend constexpr auto operator-(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const;
-    friend constexpr auto operator*(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const;
-    friend constexpr auto operator/(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const;
-
-    friend constexpr auto operator==(Color<auto> const & lhs, Color<auto> const & rhs);
-
-    friend auto operator>>(std::istream& is, Color<auto> & color) -> auto &;
-    friend auto operator<<(std::ostream & os, Color<auto> const & color) -> auto &;
 };
 
-    constexpr auto operator+(Color<auto> const & lhs, auto rhs) -> auto const;
-    constexpr auto operator+(auto lhs, Color<auto> const & rhs) -> auto const;
-    auto operator+=(Color<auto> & lhs, auto rhs) -> auto &;
-    auto operator++(Color<auto> & lhs) -> auto &;
-    auto operator++(Color<auto> & lhs, int) -> auto const;
+[[nodiscard]] constexpr auto operator+(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const;
+[[nodiscard]] constexpr auto operator+(Color<auto> const & lhs, auto rhs) -> auto const;
+[[nodiscard]] constexpr auto operator+(auto lhs, Color<auto> const & rhs) -> auto const;
+auto operator+=(Color<auto> & lhs, auto rhs) -> auto &;
+auto operator++(Color<auto> & lhs) -> auto &;
+auto operator++(Color<auto> & lhs, int) -> auto const;
 
-    constexpr auto operator-(Color<auto> const & lhs, auto rhs) -> auto const;
-    constexpr auto operator-(auto lhs, Color<auto> const & rhs) -> auto const;
-    auto operator-=(Color<auto> & lhs, auto rhs) -> auto &;
-    auto operator--(Color<auto> & lhs) -> auto &;
-    auto operator--(Color<auto> & lhs, int) -> auto const;
+[[nodiscard]] constexpr auto operator-(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const;
+[[nodiscard]] constexpr auto operator-(Color<auto> const & lhs, auto rhs) -> auto const;
+[[nodiscard]] constexpr auto operator-(auto lhs, Color<auto> const & rhs) -> auto const;
+auto operator-=(Color<auto> & lhs, auto rhs) -> auto &;
+auto operator--(Color<auto> & lhs) -> auto &;
+auto operator--(Color<auto> & lhs, int) -> auto const;
 
-    constexpr auto operator*(Color<auto> const & lhs, auto rhs) -> auto const;
-    constexpr auto operator*(auto lhs, Color<auto> const & rhs) -> auto const;
-    auto operator*=(Color<auto> & lhs, auto rhs) -> auto &;
+[[nodiscard]] constexpr auto operator*(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const;
+[[nodiscard]] constexpr auto operator*(Color<auto> const & lhs, auto rhs) -> auto const;
+[[nodiscard]] constexpr auto operator*(auto lhs, Color<auto> const & rhs) -> auto const;
+auto operator*=(Color<auto> & lhs, auto rhs) -> auto &;
 
-    constexpr auto operator/(Color<auto> const & lhs, auto rhs) -> auto const;
-    constexpr auto operator/(auto lhs, Color<auto> const & rhs) -> auto const;
-    auto operator/=(Color<auto> & lhs, auto rhs) -> auto &;
+[[nodiscard]] constexpr auto operator/(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const;
+[[nodiscard]] constexpr auto operator/(Color<auto> const & lhs, auto rhs) -> auto const;
+[[nodiscard]] constexpr auto operator/(auto lhs, Color<auto> const & rhs) -> auto const;
+auto operator/=(Color<auto> & lhs, auto rhs) -> auto &;
 
 
-    constexpr auto operator==(Color<auto> const & lhs, auto rhs);
-    constexpr auto operator==(auto lhs, Color<auto> const & rhs);
+[[nodiscard]] constexpr auto operator==(Color<auto> const & lhs, Color<auto> const & rhs);
+[[nodiscard]] constexpr auto operator==(Color<auto> const & lhs, auto rhs);
+[[nodiscard]] constexpr auto operator==(auto lhs, Color<auto> const & rhs);
 
-    constexpr auto operator!=(Color<auto> const & lhs, Color<auto> const & rhs);
-    constexpr auto operator!=(Color<auto> const & lhs, auto rhs);
-    constexpr auto operator!=(auto lhs, Color<auto> const & rhs);
+[[nodiscard]] constexpr auto operator!=(Color<auto> const & lhs, Color<auto> const & rhs);
+[[nodiscard]] constexpr auto operator!=(Color<auto> const & lhs, auto rhs);
+[[nodiscard]] constexpr auto operator!=(auto lhs, Color<auto> const & rhs);
+
+
+auto operator>>(std::istream& is, Color<auto> & color) -> auto &;
+auto operator<<(std::ostream & os, Color<auto> const & color) -> auto &;
+
 };
 
 namespace raffer
@@ -73,8 +72,6 @@ namespace raffer
 template <typename T> constexpr Color<T>::Color(T red, T green, T blue) : red{red}, green{green}, blue{blue} {}
 template <typename T> constexpr Color<T>::Color(T brightness) : red{brightness}, green{brightness}, blue{brightness} {}
 template <typename T> template <typename T1> constexpr Color<T>::Color(Color<T1> const & color) : red(color.get_red()), green(color.get_green()), blue(color.get_blue()) {}
-
-
 
 
 template <typename T> constexpr auto Color<T>::get_red() const { return red; }
@@ -87,33 +84,32 @@ template <typename T> constexpr auto Color<T>::get_blue() const { return blue; }
 template <typename T> void Color<T>::set_blue(T blue) { this->blue = blue; }
 
 
-
-constexpr auto operator+(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const { return Color{lhs.red + rhs.red, lhs.green + rhs.green, lhs.blue + rhs.blue}; }
+constexpr auto operator+(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const { return Color{lhs.get_red() + rhs.get_red(), lhs.get_green() + rhs.get_green(), lhs.get_blue() + rhs.get_blue()}; }
 constexpr auto operator+(Color<auto> const & lhs, auto rhs) -> auto const { return lhs + Color{rhs}; }
 constexpr auto operator+(auto lhs, Color<auto> const & rhs) -> auto const { return Color{lhs} + rhs; }
 auto operator+=(Color<auto> & lhs, auto rhs) -> auto & { return lhs = lhs + Color{rhs}; }
 auto operator++(Color<auto> & lhs) -> auto & { return lhs += 1; }
 auto operator++(Color<auto> & lhs, int) -> auto const { auto temp = lhs; lhs += 1; return temp; }
 
-constexpr auto operator-(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const { return Color{lhs.red - rhs.red, lhs.green - rhs.green, lhs.blue - rhs.blue}; }
+constexpr auto operator-(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const { return Color{lhs.get_red() - rhs.get_red(), lhs.get_green() - rhs.get_green(), lhs.get_blue() - rhs.get_blue()}; }
 constexpr auto operator-(Color<auto> const & lhs, auto rhs) -> auto const { return lhs - Color{rhs}; }
 constexpr auto operator-(auto lhs, Color<auto> const & rhs) -> auto const { return Color{lhs} - rhs; }
 auto operator-=(Color<auto> & lhs, auto rhs) -> auto & { return lhs = lhs - Color{rhs}; }
 auto operator--(Color<auto> & lhs) -> auto & { return lhs -= 1; }
 auto operator--(Color<auto> & lhs, int) -> auto const { auto temp = lhs; lhs -= 1; return temp; }
 
-constexpr auto operator*(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const { return Color{lhs.red * rhs.red, lhs.green * rhs.green, lhs.blue * rhs.blue}; }
+constexpr auto operator*(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const { return Color{lhs.get_red() * rhs.get_red(), lhs.get_green() * rhs.get_green(), lhs.get_blue() * rhs.get_blue()}; }
 constexpr auto operator*(Color<auto> const & lhs, auto rhs) -> auto const { return lhs * Color{rhs}; }
 constexpr auto operator*(auto lhs, Color<auto> const & rhs) -> auto const { return Color{lhs} * rhs; }
 auto operator*=(Color<auto> & lhs, auto rhs) -> auto & { return lhs = lhs * Color{rhs}; }
 
-constexpr auto operator/(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const { return Color{lhs.red / rhs.red, lhs.green / rhs.green, lhs.blue / rhs.blue}; }
+constexpr auto operator/(Color<auto> const & lhs, Color<auto> const & rhs) -> auto const { return Color{lhs.get_red() / rhs.get_red(), lhs.get_green() / rhs.get_green(), lhs.get_blue() / rhs.get_blue()}; }
 constexpr auto operator/(Color<auto> const & lhs, auto rhs) -> auto const { return lhs / Color{rhs}; }
 constexpr auto operator/(auto lhs, Color<auto> const & rhs) -> auto const { return Color{lhs} / rhs; }
 auto operator/=(Color<auto> & lhs, auto rhs) -> auto & { return lhs = lhs / Color{rhs}; }
 
 
-constexpr auto operator==(Color<auto> const & lhs, Color<auto> const & rhs) { return lhs.red == rhs.red && lhs.green == rhs.green && lhs.blue == rhs.blue; }
+constexpr auto operator==(Color<auto> const & lhs, Color<auto> const & rhs) { return lhs.get_red() == rhs.get_red() && lhs.get_green() == rhs.get_green() && lhs.get_blue() == rhs.get_blue(); }
 constexpr auto operator==(Color<auto> const & lhs, auto rhs) { return lhs == Color{rhs}; }
 constexpr auto operator==(auto lhs, Color<auto> const & rhs) { return Color{lhs} == rhs; }
 
@@ -122,10 +118,7 @@ constexpr auto operator!=(Color<auto> const & lhs, auto rhs) { return lhs != Col
 constexpr auto operator!=(auto lhs, Color<auto> const & rhs) { return Color{lhs} != rhs; }
 
 
-auto operator<<(std::ostream & os, Color<auto> const & color) -> auto &
-{
-    return os << "(" << color.red << "," << color.green << "," << color.blue << ")";
-}
+auto operator<<(std::ostream & os, Color<auto> const & color) -> auto & { return os << "(" << color.get_red() << "," << color.get_green() << "," << color.get_blue() << ")"; }
 
 };
 
