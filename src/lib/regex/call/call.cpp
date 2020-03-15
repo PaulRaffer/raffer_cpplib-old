@@ -5,19 +5,19 @@ namespace raffer
 
 template <typename Char = char>
 auto call(
-    Function_body<Char> const & _this,
-    Ordered_functions<Char> const & functions,
+    function_body<Char> const & _this,
+    ordered_functions<Char> const & functions,
     regex_namespace::match_results<typename std::basic_string<Char>::const_iterator> const & arg)
     -> std::basic_string<Char>
 {
     try
     {
-        return std::get<Function_body_ptr<Char>>(_this)(arg);
+        return std::get<function_body_ptr<Char>>(_this)(arg);
     }
     catch (std::bad_variant_access const &)
     {
-        Basic_smatch<Char> match;
-        Function<Char> func;
+        basic_smatch<Char> match;
+        function<Char> func;
         int pos_min;
 
         auto ret = std::get<std::basic_string<Char>>(_this);
@@ -53,15 +53,15 @@ auto call(
 }
 
 template auto call(
-    Function_body<char> const & _this,
-    Ordered_functions<char> const & functions,
-    Basic_smatch<char> const & arg)
+    function_body<char> const & _this,
+    ordered_functions<char> const & functions,
+    basic_smatch<char> const & arg)
     -> std::basic_string<char>;
 
 template auto call(
-    Function_body<wchar_t> const & _this,
-    Ordered_functions<wchar_t> const & functions,
-    Basic_smatch<wchar_t> const & arg)
+    function_body<wchar_t> const & _this,
+    ordered_functions<wchar_t> const & functions,
+    basic_smatch<wchar_t> const & arg)
     -> std::basic_string<wchar_t>;
 
-};
+}

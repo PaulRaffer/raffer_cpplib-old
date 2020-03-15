@@ -8,10 +8,11 @@ int main()
     using namespace std::literals;
     using namespace raffer;
 
-    auto a = Color<short>{5, 7, 2};
-    auto b = Color<short>{5, 7, 2};
+    constexpr auto a = color<short>{5, 7, 2};
+    auto b = color<short>{5, 7, 2};
     auto c = a + b;
 
+    //a = white;
 
     std::cout << a;
 }

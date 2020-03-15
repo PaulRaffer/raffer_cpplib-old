@@ -1,11 +1,24 @@
 # depslib dependency file v1.0
-1582912063 source:c:\users\paul\paul\projekte\raffer_cpplib\src\test\test_type\main.cpp
+1584304581 source:c:\users\paul\paul\projekte\raffer_cpplib\src\test\test_type\main.cpp
 	"../../lib/type/type.hpp"
 	<iostream>
 	<iomanip>
 	<complex>
+	"../../lib/system/system.hpp"
 
-1582912043 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\type\type.hpp
+1584304231 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\type\type.hpp
 	<string>
 	<sstream>
+	<locale>
+	<codecvt>
+	<cstring>
+
+1584303701 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\system\system.hpp
+
+1584302709 source:c:\users\paul\paul\projekte\raffer_cpplib\src\lib\system\system.cpp
+	"system.hpp"
+	<cstdlib>
+	<cstdio>
+	<fcntl.h>
+	<io.h>
 

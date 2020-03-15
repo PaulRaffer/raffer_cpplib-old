@@ -7,15 +7,16 @@
 #include "../../lib/regex/call/call.hpp"
 #include "../../lib/regex/call/call_std.hpp"
 
-
 #include <string>
 
 #include <fcntl.h>
 #include <io.h>
 
+#include "../../lib/system/system.hpp"
+
 using namespace raffer;
 
-Unordered_functions<Char> std_func =
+unordered_functions<Char> std_func =
 {
     { L"std::basic::func::if", std_basic_func_if },
     { L"std::basic::func::system", std_basic_func_system },
@@ -55,17 +56,16 @@ Unordered_functions<Char> std_func =
     { L"std::math::func::floor", std_math_func_floor },
     { L"std::math::func::ceil", std_math_func_ceil },
 
-    { L"std::math::func::sin", std_math_func_sin }
+    { L"std::math::func::sin", std_math_func_sin },
 };
 
 int main()
 {
-    _setmode(_fileno(stdin), _O_U16TEXT);
-    _setmode(_fileno(stdout), _O_U16TEXT);
+    enable_unicode();
 
-    Ordered_functions<Char> func(40);
+    ordered_functions<Char> func(40);
 
-    Function_body_ptr<Char> std_func_func =
+    function_body_ptr<Char> std_func_func =
         [&func](regex_namespace::wsmatch const & arg) -> std::wstring
         {
             unsigned p;
@@ -76,7 +76,7 @@ int main()
             return L"/*TODO*/";
         };
 
-    Function_body_ptr<Char> std_func_func_std =
+    function_body_ptr<Char> std_func_func_std =
         [&func](regex_namespace::wsmatch const & arg) -> std::wstring
         {
             unsigned p;
@@ -94,7 +94,7 @@ int main()
             return call<Char>(arg.str(1), func, regex_namespace::wsmatch{});
         };*/
 
-    Function_body_ptr<Char> std_func_script =
+    function_body_ptr<Char> std_func_script =
         [&func](regex_namespace::wsmatch const & arg)
         {
             /*std::wifstream file("main.txt");
@@ -116,14 +116,14 @@ int main()
             return call<Char>((Char*)script, func, regex_namespace::wsmatch{});
         };
 
-    Function_body_ptr<Char> std_basic_statement =
+    function_body_ptr<Char> std_basic_statement =
         [&func](regex_namespace::wsmatch const & arg)
         {
             return call<Char>(arg.str(1), func, regex_namespace::wsmatch{});
         };
 
 
-    Function_body_ptr<Char> std_basic_func_printall =
+    function_body_ptr<Char> std_basic_func_printall =
         [&func](regex_namespace::wsmatch const & arg)
         {
             //std::cout << std::setw(3) <<  " | " << std::left << std::setw(40) << " | " << std::endl;
@@ -159,7 +159,7 @@ int main()
         std::wcout <<
     #endif
 
-    call<Char>(LR"(script "script/std/md_to_html.script")", func, regex_namespace::wsmatch{});
+    call<Char>(LR"(script "script/std/init.script")", func, regex_namespace::wsmatch{});
     // for boost:
     //call<Char>(LR"(script "script/init (boost).script")", func, regex_namespace::wsmatch{});
 

@@ -31,8 +31,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="../../lib/experimental/system/system.cpp" />
-		<Unit filename="../../lib/experimental/system/system.hpp" />
+		<Unit filename="../../lib/system/system.cpp" />
+		<Unit filename="../../lib/system/system.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

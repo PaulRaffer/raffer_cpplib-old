@@ -8,4 +8,6 @@ int main()
     std::cout << "Hallo";
     clear_screen();
     std::cout << " Welt!\n";
+    enable_unicode();
+    std::wcout << "ä";
 }

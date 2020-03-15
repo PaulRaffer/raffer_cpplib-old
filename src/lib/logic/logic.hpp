@@ -20,7 +20,7 @@ auto bit_nor(auto... x);
 auto bit_xor(auto... x);
 auto bit_xnor(auto... x);
 
-};
+}
 
 
 
@@ -39,7 +39,7 @@ auto bit_or(auto... x) { return (... | x); }
 auto bit_nand(auto... x) { return ~bit_and(x...); }
 auto bit_nor(auto... x) { return ~bit_or(x...); }
 
-};
+}
 
 
 #endif // LOGIC_HPP
