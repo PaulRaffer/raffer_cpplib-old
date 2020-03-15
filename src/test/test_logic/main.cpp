@@ -17,6 +17,7 @@ int main ()
         //[](int i) { std::cout << "int" << std::endl; },
         [](auto... a) { std::cout << "auto" << std::endl; },
         [](double i) { std::cout << "double" << std::endl; },
+        [](char c) { std::cout << c << std::endl; },
         std::function{func},
         []<typename T>(T t) { std::cout << "T" << std::endl; },
     };

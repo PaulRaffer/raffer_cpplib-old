@@ -18,51 +18,51 @@ namespace raffer
 {
 
 template <typename Char>
-using Basic_smatch =
+using basic_smatch =
     regex_namespace::match_results<
         typename std::basic_string<
             Char>::const_iterator>;
 
 
 template <typename Char = char>
-using Function_body_ptr =
+using function_body_ptr =
     std::function<
         auto (
-            Basic_smatch<Char> const &)
+            basic_smatch<Char> const &)
             -> std::basic_string<Char>>;
 
 template <typename Char = char>
-using Function_body =
+using function_body =
     std::variant<
         std::basic_string<Char>,
-        Function_body_ptr<Char>>;
+        function_body_ptr<Char>>;
 
 template <typename Char = char>
-using Function =
+using function =
     std::pair<
         std::basic_string<Char>,
-        Function_body<Char>>;
+        function_body<Char>>;
 
 template <typename Char = char>
-using Unordered_functions =
+using unordered_functions =
     std::unordered_map<
         std::basic_string<Char>,
-        Function_body<Char>>;
+        function_body<Char>>;
 
 template <typename Char = char>
-using Ordered_functions =
+using ordered_functions =
     std::vector<
-        Unordered_functions<Char>>;
+        unordered_functions<Char>>;
 
 
 template <typename Char = char>
 auto call(
-    Function_body<Char> const & _this,
-    Ordered_functions<Char> const & functions,
-    Basic_smatch<Char> const & arg)
+    function_body<Char> const & _this,
+    ordered_functions<Char> const & functions,
+    basic_smatch<Char> const & arg)
     -> std::basic_string<Char>;
 
 
-};
+}
 
 #endif // CALL_HPP

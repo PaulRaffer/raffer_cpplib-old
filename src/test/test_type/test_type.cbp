@@ -33,6 +33,7 @@
 			<Add option="-Wall" />
 			<Add option="-std=c++17" />
 		</Compiler>
+		<Unit filename="../../lib/system/system.cpp" />
 		<Unit filename="../../lib/type/type.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>

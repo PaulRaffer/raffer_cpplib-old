@@ -32,7 +32,6 @@
 			<Add option="-Wall" />
 			<Add option="-fconcepts" />
 		</Compiler>
-		<Unit filename="../../lib/logic/logic.cpp" />
 		<Unit filename="../../lib/logic/logic.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>

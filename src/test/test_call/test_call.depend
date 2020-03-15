@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1583512616 source:c:\users\paul\paul\projekte\raffer_cpplib\src\test\test_call\main.cpp
+1584304071 source:c:\users\paul\paul\projekte\raffer_cpplib\src\test\test_call\main.cpp
 	<iostream>
 	<iomanip>
 	<fstream>
@@ -9,8 +9,9 @@
 	<string>
 	<fcntl.h>
 	<io.h>
+	"../../lib/system/system.hpp"
 
-1583502934 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\regex\call\call.hpp
+1584301573 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\regex\call\call.hpp
 	<iostream>
 	<sstream>
 	<vector>
@@ -18,7 +19,7 @@
 	<unordered_map>
 	<regex>
 
-1583510712 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\regex\call\call_std.hpp
+1584303919 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\regex\call\call_std.hpp
 	<vector>
 	<string>
 	<unordered_map>
@@ -26,19 +27,18 @@
 	<fstream>
 	<sstream>
 	<cmath>
-	<conio.h>
 	"call.hpp"
 
-1583510607 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\type\type.hpp
+1584303793 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\type\type.hpp
 	<string>
 	<sstream>
 	<locale>
 	<codecvt>
 
-1583516115 source:c:\users\paul\paul\projekte\raffer_cpplib\src\lib\regex\call\call.cpp
+1584301586 source:c:\users\paul\paul\projekte\raffer_cpplib\src\lib\regex\call\call.cpp
 	"call.hpp"
 
-1583510667 source:c:\users\paul\paul\projekte\raffer_cpplib\src\lib\regex\call\call_std.cpp
+1584303351 source:c:\users\paul\paul\projekte\raffer_cpplib\src\lib\regex\call\call_std.cpp
 	"call_std.hpp"
 	<cmath>
 	"../../type/type.hpp"
@@ -2911,4 +2911,13 @@
 
 1583506306 source:c:\users\paul\paul\projekte\raffer_cpplib\src\lib\type\type.cpp
 	"type.hpp"
+
+1584303701 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\system\system.hpp
+
+1584302709 source:c:\users\paul\paul\projekte\raffer_cpplib\src\lib\system\system.cpp
+	"system.hpp"
+	<cstdlib>
+	<cstdio>
+	<fcntl.h>
+	<io.h>
 

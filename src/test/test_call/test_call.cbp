@@ -31,15 +31,16 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-std=c++1z" />
-			<Add directory="C:/boost_1_69_0" />
+			<Add directory="C:/Program Files/boost/boost_1_69_0" />
 		</Compiler>
 		<Linker>
-			<Add library="C:/boost_1_69_0/stage/lib/libboost_regex-mgw82-mt-x32-1_69.a" />
+			<Add library="C:/Program Files/boost/boost_1_69_0/stage/lib/libboost_regex-mgw82-mt-x32-1_69.a" />
 		</Linker>
 		<Unit filename="../../lib/regex/call/call.cpp" />
 		<Unit filename="../../lib/regex/call/call.hpp" />
 		<Unit filename="../../lib/regex/call/call_std.cpp" />
 		<Unit filename="../../lib/regex/call/call_std.hpp" />
+		<Unit filename="../../lib/system/system.cpp" />
 		<Unit filename="../../lib/type/type.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
