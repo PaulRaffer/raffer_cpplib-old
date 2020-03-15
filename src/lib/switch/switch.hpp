@@ -11,7 +11,7 @@ constexpr auto equ(auto a, auto b);
 
 namespace raffer
 {
-constexpr auto equ(auto a, auto b){ return a == b;}
+constexpr auto equ(auto a, auto b){ return a == b; }
 }
 
 
