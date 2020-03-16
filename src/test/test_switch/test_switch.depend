@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1584304946 source:c:\users\paul\paul\projekte\raffer_cpplib\src\test\test_switch\main.cpp
+1584386201 source:c:\users\paul\paul\projekte\raffer_cpplib\src\test\test_switch\main.cpp
 	"../../lib/switch/switch.hpp"
 	<iostream>
+	<functional>
 
-1584349368 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\switch\switch.hpp
+1584386369 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\switch\switch.hpp
 	<initializer_list>
 	<utility>
 
