@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1584348698 source:c:\users\paul\paul\projekte\raffer_cpplib\src\test\test_type_traits\main.cpp
+	"../../lib/type_traits/type_traits.hpp"
+	<iostream>
+
+1584345728 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\type_traits\type_traits.hpp
+	<type_traits>
+	<array>
+	<vector>
+	<deque>
+	<forward_list>
+	<list>
+	<stack>
+	<queue>
+	<set>
+	<map>
+	<unordered_set>
+	<unordered_map>
+
