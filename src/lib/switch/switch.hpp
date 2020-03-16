@@ -34,7 +34,7 @@ constexpr auto switch_(T const & condition, std::initializer_list<std::pair<T co
     for (auto [value, action] : cases)
         if (equ(condition, value))
             return action();
-    return typename std::invoke_result<Action>::type();
+    return typename std::invoke_result_t<Action>();
 }
 
 }

@@ -32,6 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-std=c++17" />
 		</Compiler>
+		<Unit filename="../../lib/switch/switch.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
