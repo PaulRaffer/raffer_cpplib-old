@@ -3,30 +3,54 @@
 #include <iostream>
 #include <functional>
 
+#define USE_IF_MACROS1
 
+#ifdef USE_IF_MACROS1
+    #define IF [&]{if(
+    #define THEN ){
+    #define ELSE }else{
+    #define ELIF }else if(
+    #define END }}();
+#endif // USE_IF_MACROS1
+
+#ifdef USE_IF_MACROS2
+    #define IF if_(
+    #define THEN ,[&]{
+    #define ELSE },[&]{
+    #define END });
+#endif // USE_IF_MACROS2
 
 int main()
 {
-    raffer::switch_(3, {
-    {1, []{
-        return 6;
-    }},
-    {2, []{
-        std::cout << "0" << std::endl;
-        return 3;
-    }},
-    {3, []{ std::cout << "3" << std::endl;
-        return 4;
-    }},
-    {4, []{
-        std::cout << "2" << std::endl;
-        return 2;
-    }},
+    std::cout << []{switch (3)
+        {
+        case 1:
+            return 5;
+
+        }
+    }();
+
+
+
+    using namespace raffer;
+
+std::string str = "1234";
+    raffer::if_(true,[&]{
+        std::cout << "Hallo" << str << std::endl;
+    },[&]{
+        std::cout << "Welt!" << std::endl;
     });
 
-    /*std::cout << raffer::if_(false,
-        [](int i){ std::cout << "Hallo" << std::endl; return i; },
-        [](double i){ std::cout << "Welt!" << std::endl; return i*2; },
-        5
-    );*/
+    IF 0 THEN
+        std::cout << "Hallo" << str << std::endl;
+    END
+
+    std::cout <<
+        IF 0 THEN
+            return 7;
+        ELIF 1 THEN
+            return 8;
+        ELSE
+
+        END
 }
