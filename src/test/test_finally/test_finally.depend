@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1584551111 source:c:\users\paul\paul\projekte\raffer_cpplib\src\test\test_finally\main.cpp
+	<iostream>
+	"../../lib/finally/finally.hpp"
+
+1584550238 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\finally\finally.hpp
+	<functional>
+
+1584550264 source:c:\users\paul\paul\projekte\raffer_cpplib\src\lib\finally\finally.cpp
+	"finally.hpp"
+
