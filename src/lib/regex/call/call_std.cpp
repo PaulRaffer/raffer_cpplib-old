@@ -35,11 +35,11 @@ auto std_basic_func_print(basic_smatch<Char> const & arg) -> std::basic_string<C
 
 auto std_basic_func_fprint(basic_smatch<Char> const & arg) -> std::basic_string<Char>
 {
-    std::ofstream file{wstring_to_string(arg.str(1))};
+    std::ofstream file{to_string(arg.str(1))};
     if(!file);
     else
     {
-        file << wstring_to_string(arg.str(2));
+        file << to_string(arg.str(2));
         //ret = "\"" + arg.at(1) + "\"<<";
         file.close();
     }

@@ -12,14 +12,18 @@
 namespace raffer
 {
 
-template <typename Out, typename In>
-[[nodiscard]]
-constexpr auto to_basic_string(In const value, int const precision = 6) -> std::basic_string<Out>;
+template <typename Char> [[nodiscard]] constexpr auto to_basic_string(auto value, int precision = 6);
 
-auto string_to_wstring(std::string const & str);
-auto wstring_to_string(std::wstring const & wstr);
+[[nodiscard]] auto to_string(std::wstring const & wstr) -> std::string;
+[[nodiscard]] auto to_wstring(std::string const & str) -> std::wstring;
 
-auto to_char_array(wchar_t const * wchar_array) -> char const *;
+[[nodiscard]] auto to_char_array(wchar_t const * wchar_array) -> char const *;
+
+
+
+[[nodiscard]] auto length(std::string const & str) -> size_t;
+[[nodiscard]] auto length(std::wstring const & str) -> size_t;
+
 
 }
 
@@ -27,34 +31,16 @@ auto to_char_array(wchar_t const * wchar_array) -> char const *;
 namespace raffer
 {
 
-template <typename Out, typename In>
-constexpr auto to_basic_string(In const value, int const precision) -> std::basic_string<Out>
+template <typename Char, typename T>
+constexpr auto to_basic_string(T value, int precision)
 {
-    auto oss = std::basic_ostringstream<Out>{};
+    auto oss = std::basic_ostringstream<Char>{};
     oss.precision(precision);
     oss << value;
     return oss.str();
 }
 
 
-auto string_to_wstring(std::string const & str)
-{
-    return std::wstring_convert<std::codecvt_utf8<wchar_t>>().from_bytes(str);
-}
-auto wstring_to_string(std::wstring const & wstr)
-{
-    return std::wstring_convert<std::codecvt_utf8<wchar_t>>().to_bytes(wstr);
-}
-
-
-auto to_char_array(wchar_t const * wchar_array) -> char const *
-{
-    auto len = wcslen(wchar_array);
-    auto char_array = new char[len + 1];
-    memset(char_array, 0, len + 1);
-    wcstombs(char_array, wchar_array, len);
-    return char_array;
-}
 
 }
 
