@@ -19,9 +19,9 @@ using namespace raffer;
 
 int main()
 {
-    auto std_func = unordered_functions<Char>{};
-
     enable_unicode();
+
+    auto std_func = unordered_functions<Char>{};
 
     ordered_functions<Char> func(40);
 
@@ -179,7 +179,7 @@ int main()
 
     //call<Char>(LR"(script "script/std/init.script")", func, regex_namespace::wsmatch{});
     // for boost:
-    call<Char>(LR"(script "script/boost/init.script")", func, regex_namespace::wsmatch{});
+    call<Char>(LR"(script "script/boost/main.script")", func, regex_namespace::wsmatch{});
 
     std::wstring input;
 
