@@ -16,51 +16,11 @@
 
 using namespace raffer;
 
-unordered_functions<Char> std_func =
-{
-    { L"std::basic::func::if", std_basic_func_if },
-    { L"std::basic::func::system", std_basic_func_system },
-    { L"std::inout::func::print", std_basic_func_print },
-    { L"std::inout::func::fprint", std_basic_func_fprint },
-
-    { L"std::math::func::rm[-\\+]", std_math_func_rmsign },
-    { L"std::basic::func::arg1", std_basic_func_arg1 },
-
-    { L"std::math::const::pi", std_math_const_pi },
-    { L"std::math::const::e", std_math_const_e },
-    { L"std::phys::const::c", std_math_const_c },
-
-
-    { L"std::math::func::pow", std_math_func_pow },
-    { L"std::math::func::root", std_math_func_root },
-    { L"std::math::func::log", std_math_func_log },
-    { L"std::math::func::mult", std_math_func_mult },
-    { L"std::math::func::div", std_math_func_div },
-    { L"std::math::func::mod", std_math_func_mod },
-    { L"std::math::func::add", std_math_func_add },
-    { L"std::math::func::sub", std_math_func_sub },
-
-    { L"std::logic::const::true", std_logic_const_true },
-    { L"std::logic::const::false", std_logic_const_false },
-
-    { L"std::logic::func::not", std_logic_func_not },
-    { L"std::logic::func::and", std_logic_func_and },
-    { L"std::logic::func::or", std_logic_func_or },
-    { L"std::logic::func::nand", std_logic_func_nand },
-    { L"std::logic::func::nor", std_logic_func_nor },
-    { L"std::logic::func::xor", std_logic_func_xor },
-    { L"std::logic::func::xnor", std_logic_func_xnor },
-
-    { L"std::basic::func::range", std_basic_func_range },
-
-    { L"std::math::func::floor", std_math_func_floor },
-    { L"std::math::func::ceil", std_math_func_ceil },
-
-    { L"std::math::func::sin", std_math_func_sin },
-};
 
 int main()
 {
+    auto std_func = unordered_functions<Char>{};
+
     enable_unicode();
 
     ordered_functions<Char> func(40);
@@ -77,7 +37,7 @@ int main()
         };
 
     function_body_ptr<Char> std_func_func_std =
-        [&func](regex_namespace::wsmatch const & arg) -> std::wstring
+        [&func, &std_func](regex_namespace::wsmatch const & arg) -> std::wstring
         {
             unsigned p;
             std::wstringstream(arg.str(1)) >> p;
@@ -116,7 +76,7 @@ int main()
             return call<Char>((Char*)script, func, regex_namespace::wsmatch{});
         };
 
-    function_body_ptr<Char> std_basic_statement =
+    function_body_ptr<Char> std_basic_func_evaluate =
         [&func](regex_namespace::wsmatch const & arg)
         {
             return call<Char>(arg.str(1), func, regex_namespace::wsmatch{});
@@ -145,11 +105,69 @@ int main()
         };
 
 
-    func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(.+))", std_func_func });
-    func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(std::\S+))", std_func_func_std });
+
+
+
+
+
+    std_func = unordered_functions<Char>
+    {
+        { L"std::basic::func::ignore", std_basic_func_ignore },
+
+        { L"std::basic::func::evaluate", std_basic_func_evaluate },
+
+        { L"std::basic::func::if", std_basic_func_if },
+        { L"std::basic::func::system", std_basic_func_system },
+        { L"std::inout::func::print", std_basic_func_print },
+        { L"std::inout::func::fprint", std_basic_func_fprint },
+
+        { L"std::math::func::rm[-\\+]", std_math_func_rmsign },
+        { L"std::basic::func::arg1", std_basic_func_arg1 },
+
+        { L"std::math::const::pi", std_math_const_pi },
+        { L"std::math::const::e", std_math_const_e },
+        { L"std::phys::const::c", std_math_const_c },
+
+
+        { L"std::math::func::pow", std_math_func_pow },
+        { L"std::math::func::root", std_math_func_root },
+        { L"std::math::func::log", std_math_func_log },
+        { L"std::math::func::mult", std_math_func_mult },
+        { L"std::math::func::div", std_math_func_div },
+        { L"std::math::func::mod", std_math_func_mod },
+        { L"std::math::func::add", std_math_func_add },
+        { L"std::math::func::sub", std_math_func_sub },
+
+        { L"std::logic::const::true", std_logic_const_true },
+        { L"std::logic::const::false", std_logic_const_false },
+
+        { L"std::logic::func::not", std_logic_func_not },
+        { L"std::logic::func::and", std_logic_func_and },
+        { L"std::logic::func::or", std_logic_func_or },
+        { L"std::logic::func::nand", std_logic_func_nand },
+        { L"std::logic::func::nor", std_logic_func_nor },
+        { L"std::logic::func::xor", std_logic_func_xor },
+        { L"std::logic::func::xnor", std_logic_func_xnor },
+
+        { L"std::basic::func::range", std_basic_func_range },
+
+        { L"std::math::func::floor", std_math_func_floor },
+        { L"std::math::func::ceil", std_math_func_ceil },
+
+        { L"std::math::func::sin", std_math_func_sin },
+    };
+
+
+
+
+
+
+
+    //func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(.+))", std_func_func });
+    //func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(std::\S+))", std_func_func_std });
     // for boost:
-    //func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*=\s*([^\n]+)$)", std_func_func });
-    //func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*=\s*(std::\S+))", std_func_func_std });
+    func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*([^\n]+)$)", std_func_func });
+    func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(std::\S+))", std_func_func_std });
 
     func.at(7).insert({ L"script\\s*\"([^\"]*)\"", std_func_script });
     func.at(25).insert({ L"print\\s*all", std_basic_func_printall });
@@ -159,9 +177,9 @@ int main()
         std::wcout <<
     #endif
 
-    call<Char>(LR"(script "script/std/init.script")", func, regex_namespace::wsmatch{});
+    //call<Char>(LR"(script "script/std/init.script")", func, regex_namespace::wsmatch{});
     // for boost:
-    //call<Char>(LR"(script "script/init (boost).script")", func, regex_namespace::wsmatch{});
+    call<Char>(LR"(script "script/boost/init.script")", func, regex_namespace::wsmatch{});
 
     std::wstring input;
 
