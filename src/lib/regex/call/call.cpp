@@ -1,13 +1,17 @@
 #include "call.hpp"
 
+#include <iostream>
+#include "../../system/system.hpp"
+#include <windows.h>
+
 namespace raffer
 {
 
-template <typename Char = char>
+template <typename Char>
 auto call(
     function_body<Char> const & _this,
     ordered_functions<Char> const & functions,
-    regex_namespace::match_results<typename std::basic_string<Char>::const_iterator> const & arg)
+    basic_smatch<Char> const & arg)
     -> std::basic_string<Char>
 {
     try
@@ -16,38 +20,44 @@ auto call(
     }
     catch (std::bad_variant_access const &)
     {
-        basic_smatch<Char> match;
-        function<Char> func;
-        int pos_min;
+        auto pos_min = int{};
+        std::basic_string<Char> ret = std::get<std::basic_string<Char>>(_this);
 
-        auto ret = std::get<std::basic_string<Char>>(_this);
         for (auto fg = 0u; fg < functions.size(); ++fg)
-            do
+            while (!is_down(VK_ESCAPE))
             {
+                auto match = basic_smatch<Char>{};
+                auto func = function<Char>{};
+
                 pos_min = std::numeric_limits<int>::max();
                 for (auto const & f : functions.at(fg))
-                    if (regex_namespace::regex_search(ret, match, regex_namespace::basic_regex<Char>(f.first), regex_namespace::regex_constants::format_first_only))
-                        if (match.position(int{0}) < pos_min)
+                    if (regex_namespace::regex_search(ret, match,
+                        regex_namespace::basic_regex<Char>(f.first),
+                        regex_namespace::regex_constants::format_first_only))
+                        if (match.position() < pos_min)
                         {
                             func = f;
-                            pos_min = match.position(int{0});
+                            pos_min = match.position();
                         }
 
                 if(pos_min != std::numeric_limits<int>::max())
                 {
-                    regex_namespace::regex_search(
-                        ret, match, regex_namespace::basic_regex<Char>(func.first),
+                    regex_namespace::regex_search(ret, match,
+                        regex_namespace::basic_regex<Char>(func.first),
                         regex_namespace::regex_constants::format_first_only);
 
-                    ret = regex_namespace::regex_replace(
-                        ret, regex_namespace::basic_regex<Char>(func.first), call(func.second, functions, match),
+                    ret = regex_namespace::regex_replace(ret,
+                        regex_namespace::basic_regex<Char>(func.first),
+                        call(func.second, functions, match),
                         regex_namespace::regex_constants::format_first_only);
 
-                    fg = 0;
+                    fg = 0u;
+                    continue;
                 }
+                break;
             }
-            while(pos_min != std::numeric_limits<int>::max());
 
+        //std::wcout << std::endl << L"<<<<<<<<<<<<<<<<<<<<<<<<" << std::endl << ret << std::endl << L">>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
         return ret;
     }
 }

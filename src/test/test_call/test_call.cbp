@@ -41,6 +41,7 @@
 		<Unit filename="../../lib/regex/call/call_std.cpp" />
 		<Unit filename="../../lib/regex/call/call_std.hpp" />
 		<Unit filename="../../lib/system/system.cpp" />
+		<Unit filename="../../lib/type/type.cpp" />
 		<Unit filename="../../lib/type/type.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>

@@ -8,11 +8,11 @@
 #include <unordered_map>
 
 
-#include <regex>
-namespace regex_namespace = std;
+//#include <regex>
+//namespace regex_namespace = std;
 // for boost:
-//#include <boost/regex.hpp>
-//namespace regex_namespace = boost;
+#include <boost/regex.hpp>
+namespace regex_namespace = boost;
 
 namespace raffer
 {
@@ -53,6 +53,9 @@ template <typename Char = char>
 using ordered_functions =
     std::vector<
         unordered_functions<Char>>;
+
+
+
 
 
 template <typename Char = char>
