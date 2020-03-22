@@ -1,0 +1,30 @@
+PRIORITY  1 _ EQUALS \s*
+
+PRIORITY  2 TYPE EQUALS PRIORITY(3)
+PRIORITY  2 FUNC EQUALS PRIORITY(30)
+
+PRIORITY  3 sign    EQUALS [-\+]
+PRIORITY  3 number  EQUALS \d*\.?\d+
+PRIORITY  3 String  EQUALS "([^"]*)"
+PRIORITY  3 boolean EQUALS [01]
+
+
+
+PRIORITY 8 String_<<_String EQUALS std::inout::func::fprint
+
+
+------------------------------------------------------------
+
+PRIORITY 15 \n_#[\t\x32]*(.*\S)[\t\x32]*\n EQUALS <h1>$1</h1>
+PRIORITY 14 \n_##[\t\x32]*(.*\S)[\t\x32]*\n EQUALS <h2>$1</h2>
+PRIORITY 13 \n_###[\t\x32]*(.*\S)[\t\x32]*\n EQUALS <h3>$1</h3>
+PRIORITY 12 \n_####[\t\x32]*(.*\S)[\t\x32]*\n EQUALS <h4>$1</h4>
+PRIORITY 11 \n_#####[\t\x32]*(.*\S)[\t\x32]*\n EQUALS <h5>$1</h5>
+PRIORITY 10 \n_######[\t\x32]*(.*\S)[\t\x32]*\n EQUALS <h6>$1</h6>
+
+PRIORITY 15 \n(_)(.*\S)_\n\1?=+[\t\x32]*\n EQUALS <h1>$2</h1>
+PRIORITY 14 \n(_)(.*\S)_\n\1?-+[\t\x32]*\n EQUALS <h2>$2</h2>
+
+------------------------------------------------------------
+
+"output.html" << "script "input.md""

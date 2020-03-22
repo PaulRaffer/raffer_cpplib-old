@@ -1,0 +1,54 @@
+PRIORITY  0 //[^\n]* EQUALS std::basic::ignore
+//PRIORITY  0 /\*\*/ EQUALS std::basic::ignore
+
+PRIORITY  0 LAMBDA EQUALS \
+
+PRIORITY  1 _ EQUALS \\s*
+
+PRIORITY  5 EVAL_(.*) EQUALS std::basic::func::evaluate
+
+PRIORITY  2 _(.*)_; EQUALS std::basic::func::evaluate
+
+PRIORITY  2 TYPE EQUALS PRIORITY(3)
+PRIORITY  2 FUNC EQUALS PRIORITY(30)
+
+
+PRIORITY  3 String  EQUALS "([^"]*)"
+
+PRIORITY  3 letter  EQUALS [A-Za-z]
+
+PRIORITY  5 system\s*String EQUALS std::basic::func::system
+PRIORITY  5 EVALUATE\((.*)\) EQUALS std::basic::func::evaluate
+
+PRIORITY  6 (\S+)\s*=\s*(.+) EQUALS FUNC LAMBDA \\b$1\\b EQUALS $2
+
+PRIORITY  7 true  EQUALS std::logic::const::true
+PRIORITY  7 false EQUALS std::logic::const::false
+
+;
+script "script/boost/math.script";
+PRIORITY  3 boolean EQUALS [01]
+
+PRIORITY 19 (?:¬|not)_(boolean)                 EQUALS std::logic::func::not
+PRIORITY 20 (boolean)_(?:∧|and)_(boolean)       EQUALS std::logic::func::and
+PRIORITY 20 (boolean)_(?:∨|or)_(boolean)        EQUALS std::logic::func::or
+PRIORITY 20 (boolean)_(?:⊼|nand)_(boolean)      EQUALS std::logic::func::nand
+PRIORITY 20 (boolean)_(?:⊽|nor)_(boolean)       EQUALS std::logic::func::nor
+PRIORITY 21 (boolean)_(?:⇹|↮|⊻|⊕|xor)_(boolean) EQUALS std::logic::func::xor
+PRIORITY 21 (boolean)_(?:↔|xnor)_(boolean)      EQUALS std::logic::func::xnor
+;
+
+PRIORITY 23 (?:∿|sin)_(number) EQUALS std::math::func::sin
+
+PRIORITY 22 (number)\.\.+(number) EQUALS std::basic::func::range
+
+PRIORITY 25 print_(number) EQUALS std::inout::func::print
+PRIORITY 25 print_String   EQUALS std::inout::func::print
+PRIORITY 24 String_<<_String EQUALS std::inout::func::printf
+
+
+
+
+
+
+

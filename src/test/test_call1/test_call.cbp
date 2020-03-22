@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="test_call" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/test_call" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/test_call" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-std=c++1z" />
+			<Add directory="C:/Program Files/boost/boost_1_69_0" />
+		</Compiler>
+		<Linker>
+			<Add library="C:/Program Files/boost/boost_1_69_0/stage/lib/libboost_regex-mgw82-mt-x32-1_69.a" />
+		</Linker>
+		<Unit filename="../../lib/regex/call/call.cpp" />
+		<Unit filename="../../lib/regex/call/call.hpp" />
+		<Unit filename="../../lib/regex/call/call_std.cpp" />
+		<Unit filename="../../lib/regex/call/call_std.hpp" />
+		<Unit filename="../../lib/system/system.cpp" />
+		<Unit filename="../../lib/type/type.cpp" />
+		<Unit filename="../../lib/type/type.hpp" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<fortran_project />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

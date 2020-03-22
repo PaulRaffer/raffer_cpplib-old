@@ -1,0 +1,12 @@
+script "script/boost/std.script"
+
+U = R * I
+R = U / I
+I = U / R
+
+U = 5
+I = 2
+print R;
+
+U = 2
+print R
