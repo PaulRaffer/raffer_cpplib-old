@@ -23,14 +23,15 @@ int main()
 
     auto std_func = unordered_functions<Char>{};
 
-    ordered_functions<Char> func(40);
+    std::unordered_map<std::basic_string<Char>, ordered_functions<Char>> func;
+    func.insert({L"", ordered_functions<Char>(40)});
 
     function_body_ptr<Char> std_func_func =
         [&func](regex_namespace::wsmatch const & arg) -> std::wstring
         {
             unsigned p;
             std::wstringstream(arg.str(1)) >> p;
-            func.at(p)[arg.str(2)] = arg.str(3);
+            func.at(L"").at(p).insert_or_assign(arg.str(2), arg.str(3));
             //ret = "1";
             //ret = arg.at(2);
             return L"/*TODO*/";
@@ -42,8 +43,8 @@ int main()
             unsigned p;
             std::wstringstream(arg.str(1)) >> p;
             //std::wcout << arg.str(3);
-            func.at(p)[arg.str(2)] = std_func[arg.str(3)];
-            return arg.str(2);
+            func.at(L"").at(p).insert_or_assign(arg.str(2), std_func[arg.str(3)]);
+            return L"/*TODO*/";
         };
 
     /*Function_body_ptr<Char> std_func_cmd =
@@ -73,13 +74,13 @@ int main()
             auto script = (Char*)calloc(chars, sizeof(Char));
             fread(script, sizeof(Char), chars, file);
 
-            return call<Char>((Char*)script, func, regex_namespace::wsmatch{});
+            return call<Char>((Char*)script, func.at(L""), regex_namespace::wsmatch{});
         };
 
     function_body_ptr<Char> std_basic_func_evaluate =
         [&func](regex_namespace::wsmatch const & arg)
         {
-            return call<Char>(arg.str(1), func, regex_namespace::wsmatch{});
+            return call<Char>(arg.str(1), func.at(L""), regex_namespace::wsmatch{});
         };
 
 
@@ -87,8 +88,8 @@ int main()
         [&func](regex_namespace::wsmatch const & arg)
         {
             //std::cout << std::setw(3) <<  " | " << std::left << std::setw(40) << " | " << std::endl;
-            for (unsigned i = 0; i < func.size(); ++ i)
-                for (const auto& [name, body] : func.at(i))
+            for (unsigned i = 0; i < func.at(L"").size(); ++ i)
+                for (const auto& [name, body] : func.at(L"").at(i))
                 {
                     std::wcout << std::right << std::setw(3) << i << " | " << std::left << std::setw(50) << name << " | ";
                     try
@@ -104,14 +105,20 @@ int main()
             return L"";/*TODO*/
         };
 
+    std::basic_string<Char> scope = L"";
 
-
-
+    function_body_ptr<Char> std_basic_func_setscope =
+        [&func, &scope](regex_namespace::wsmatch const & arg)
+        {
+            std::wcout << arg.str(1);
+            return scope = arg.str(1);
+        };
 
 
 
     std_func = unordered_functions<Char>
     {
+        { L"std::basic::func::setscope", std_basic_func_setscope },
         { L"std::basic::func::ignore", std_basic_func_ignore },
 
         { L"std::basic::func::evaluate", std_basic_func_evaluate },
@@ -163,14 +170,14 @@ int main()
 
 
 
-    //func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(.+))", std_func_func });
-    //func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(std::\S+))", std_func_func_std });
+    //func.at(L"").at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(.+))", std_func_func });
+    //func.at(L"").at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(std::\S+))", std_func_func_std });
     // for boost:
-    func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*([^\n]+)$)", std_func_func });
-    func.at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(std::\S+))", std_func_func_std });
+    func.at(L"").at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*([^\n]+)$)", std_func_func });
+    func.at(L"").at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(std::\S+))", std_func_func_std });
 
-    func.at(7).insert({ L"script\\s*\"([^\"]*)\"", std_func_script });
-    func.at(25).insert({ L"print\\s*all", std_basic_func_printall });
+    func.at(L"").at(7).insert({ L"script\\s*\"([^\"]*)\"", std_func_script });
+    func.at(L"").at(25).insert({ L"print\\s*all", std_basic_func_printall });
 
 
     #ifdef DEBUG
@@ -179,15 +186,15 @@ int main()
 
     //call<Char>(LR"(script "script/std/init.script")", func, regex_namespace::wsmatch{});
     // for boost:
-    call<Char>(LR"(script "script/boost/main.script")", func, regex_namespace::wsmatch{});
+    call<Char>(LR"(script "script/boost/main.script")", func.at(L""), regex_namespace::wsmatch{});
 
     std::wstring input;
 
     while (true)
     {
         std::fflush(stdin);
-        std::wcout << ">>> ";
+        std::wcout << "(" << scope << ")>>> ";
         while (!std::getline(std::wcin, input));
-        std::wcout << "<<< " << call<Char>(input, func, regex_namespace::wsmatch{}) << std::endl;
+        std::wcout << "<<< " << call<Char>(input, func[scope], regex_namespace::wsmatch{}) << std::endl;
     }
 }

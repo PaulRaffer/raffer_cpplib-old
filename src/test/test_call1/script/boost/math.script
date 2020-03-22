@@ -1,0 +1,60 @@
+PRIORITY  3 sign    EQUALS (?:-|\\+)
+PRIORITY  3 number  EQUALS \\d*\\.?\\d+
+
+PRIORITY  8 (sign)_(sign)        EQUALS std::math::func::rmsign
+PRIORITY  8  \(_(sign?number)_\) EQUALS std::basic::func::arg1
+PRIORITY  8 \[_(sign?number)_\]  EQUALS std::basic::func::arg1
+
+PRIORITY  9 ⌊_(sign?number)_⌋    EQUALS std::math::func::floor
+PRIORITY  9 ⌈_(sign?number)_⌉    EQUALS std::math::func::ceil
+
+
+PRIORITY 13 (number)_\^_(sign?number)   EQUALS std::math::func::pow
+PRIORITY 13 (number)_root_(sign?number) EQUALS std::math::func::root
+PRIORITY 13 (number)_log_(sign?number)  EQUALS std::math::func::log
+PRIORITY 14 (number)_\*_(sign?number)   EQUALS std::math::func::mult
+PRIORITY 14 (number)_/_(sign?number)    EQUALS std::math::func::div
+PRIORITY 14 (number)_mod_(sign?number)  EQUALS std::math::func::mod
+PRIORITY 15 (sign?number)_\+_(number)   EQUALS std::math::func::add
+PRIORITY 15 (sign?number)_-_(number)    EQUALS std::math::func::sub
+
+
+PRIORITY  7 (?<!\d)pi|π(?!\d) EQUALS std::math::const::pi
+PRIORITY  7 (?<!\d)e(?!\d)    EQUALS std::math::const::e
+PRIORITY  7 (?<!\d)c(?!\d)    EQUALS std::phys::const::c
+
+
+
+PRIORITY 25 ² EQUALS ^2
+PRIORITY 25 ³ EQUALS ^3
+
+PRIORITY 25 ¼ EQUALS 1/4
+PRIORITY 25 ½ EQUALS 1/2
+PRIORITY 25 ¾ EQUALS 3/4
+PRIORITY 25 ⅐ EQUALS 1/7
+PRIORITY 25 ⅑ EQUALS 1/9
+PRIORITY 25 ⅒ EQUALS 1/10
+PRIORITY 25 ⅓ EQUALS 1/3
+PRIORITY 25 ⅔ EQUALS 2/3
+PRIORITY 25 ⅕ EQUALS 1/5
+PRIORITY 25 ⅖ EQUALS 2/5
+PRIORITY 25 ⅗ EQUALS 3/5
+PRIORITY 25 ⅘ EQUALS 4/5
+PRIORITY 25 ⅙ EQUALS 1/6
+PRIORITY 25 ⅚ EQUALS 5/6
+PRIORITY 25 ⅛ EQUALS 1/8
+PRIORITY 25 ⅜ EQUALS 3/8
+PRIORITY 25 ⅝ EQUALS 5/8
+PRIORITY 25 ⅞ EQUALS 7/8
+PRIORITY 25 ↉ EQUALS 0/3
+
+PRIORITY 26 (?<=\d)_T(?=letter) EQUALS *10^12
+PRIORITY 26 (?<=\d)_G(?=letter) EQUALS *10^9
+PRIORITY 26 (?<=\d)_M(?=letter) EQUALS *10^6
+PRIORITY 26 (?<=\d)_k(?=letter) EQUALS *10^3
+PRIORITY 26 (?<=\d)_m(?=letter) EQUALS *10^-3
+PRIORITY 26 (?<=\d)_µ(?=letter) EQUALS *10^-6
+PRIORITY 26 (?<=\d)_n(?=letter) EQUALS *10^-9
+PRIORITY 26 (?<=\d)_p(?=letter) EQUALS *10^-12
+
+
