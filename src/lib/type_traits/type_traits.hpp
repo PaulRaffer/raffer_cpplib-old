@@ -18,8 +18,11 @@
 #include <unordered_set>
 #include <unordered_map>
 
-template <typename T> struct is_stl_container : std::false_type {};
-template <typename T> constexpr auto is_stl_container_v = is_stl_container<T>::value;
+template <
+    typename T>
+struct is_stl_container
+: std::false_type {};
+
 
 template <typename... Args> struct is_stl_container<std::array<Args...>> : std::true_type {};
 template <typename... Args> struct is_stl_container<std::vector<Args...>> : std::true_type {};
@@ -40,5 +43,10 @@ template <typename... Args> struct is_stl_container<std::unordered_set<Args...>>
 template <typename... Args> struct is_stl_container<std::unordered_multiset<Args...>> : std::true_type {};
 template <typename... Args> struct is_stl_container<std::unordered_map<Args...>> : std::true_type {};
 template <typename... Args> struct is_stl_container<std::unordered_multimap<Args...>> : std::true_type {};
+
+
+template <
+    typename T>
+constexpr auto is_stl_container_v = is_stl_container<T>::value;
 
 #endif // TYPE_TRAITS_HPP

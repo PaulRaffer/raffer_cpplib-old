@@ -170,11 +170,11 @@ int main()
 
 
 
-    //func.at(L"").at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(.+))", std_func_func });
-    //func.at(L"").at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(std::\S+))", std_func_func_std });
-    // for boost:
-    func.at(L"").at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*([^\n]+)$)", std_func_func });
+    func.at(L"").at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(.+))", std_func_func });
     func.at(L"").at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(std::\S+))", std_func_func_std });
+    // for boost:
+    //func.at(L"").at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*([^\n]+)$)", std_func_func });
+    //func.at(L"").at(4).insert({ LR"(PRIORITY\s*(\d+)\s*(\S+)\s*EQUALS\s*(std::\S+))", std_func_func_std });
 
     func.at(L"").at(7).insert({ L"script\\s*\"([^\"]*)\"", std_func_script });
     func.at(L"").at(25).insert({ L"print\\s*all", std_basic_func_printall });
@@ -184,9 +184,9 @@ int main()
         std::wcout <<
     #endif
 
-    //call<Char>(LR"(script "script/std/init.script")", func, regex_namespace::wsmatch{});
+    call<Char>(LR"(script "script/std/init.script")", func.at(L""), regex_namespace::wsmatch{});
     // for boost:
-    call<Char>(LR"(script "script/boost/main.script")", func.at(L""), regex_namespace::wsmatch{});
+    //call<Char>(LR"(script "script/boost/main.script")", func.at(L""), regex_namespace::wsmatch{});
 
     std::wstring input;
 

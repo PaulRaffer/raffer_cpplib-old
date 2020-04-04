@@ -31,7 +31,7 @@ auto call(
 
                 pos_min = std::numeric_limits<int>::max();
                 for (auto const & f : functions.at(fg))
-                    if (regex_namespace::regex_search(ret, match,
+                    if (regex_search(ret, match,
                         regex_namespace::basic_regex<Char>(f.first),
                         regex_namespace::regex_constants::format_first_only))
                         if (match.position() < pos_min)
@@ -42,11 +42,11 @@ auto call(
 
                 if(pos_min != std::numeric_limits<int>::max())
                 {
-                    regex_namespace::regex_search(ret, match,
+                    regex_search(ret, match,
                         regex_namespace::basic_regex<Char>(func.first),
                         regex_namespace::regex_constants::format_first_only);
 
-                    ret = regex_namespace::regex_replace(ret,
+                    ret = regex_replace(ret,
                         regex_namespace::basic_regex<Char>(func.first),
                         call(func.second, functions, match),
                         regex_namespace::regex_constants::format_first_only);

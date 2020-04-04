@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1585491056 source:c:\users\paul\paul\projekte\raffer_cpplib\src\test\test_length\main.cpp
+	<ratio>
+	<iostream>
+	<chrono>
+	<type_traits>
+
