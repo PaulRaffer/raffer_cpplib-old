@@ -7,53 +7,52 @@
 namespace raffer
 {
 
-template <typename Char>
+template <typename Regex>
 auto call(
-    function_body<Char> const & _this,
-    ordered_functions<Char> const & functions,
-    basic_smatch<Char> const & arg)
-    -> std::basic_string<Char>
+    function_body<typename Regex::value_type> const & _this,
+    ordered_functions<typename Regex::value_type> const & functions,
+    regex_namespace::match_results<typename std::basic_string<typename Regex::value_type>::const_iterator> const & arg)
+    -> std::basic_string<typename Regex::value_type>
 {
-    try
-    {
-        return std::get<function_body_ptr<Char>>(_this)(arg);
-    }
+    using Char = typename Regex::value_type;
+    try { return std::get<function_body_ptr<Char>>(_this)(arg); }
     catch (std::bad_variant_access const &)
     {
-        auto pos_min = int{};
         std::basic_string<Char> ret = std::get<std::basic_string<Char>>(_this);
 
         for (auto fg = 0u; fg < functions.size(); ++fg)
             while (!is_down(VK_ESCAPE))
             {
-                auto match = basic_smatch<Char>{};
                 auto func = function<Char>{};
+                auto next_match = regex_namespace::match_results<typename std::basic_string<Char>::const_iterator>{};
+                auto next_match_pos = std::numeric_limits<int>::max();
 
-                pos_min = std::numeric_limits<int>::max();
-                for (auto const & f : functions.at(fg))
-                    if (regex_namespace::regex_search(ret, match,
+                for (auto & f : functions.at(fg))
+                {
+                    auto match = basic_smatch<Char>{};
+                    if (regex_search(ret, match,
                         regex_namespace::basic_regex<Char>(f.first),
                         regex_namespace::regex_constants::format_first_only))
-                        if (match.position() < pos_min)
+                        if (match.position() < next_match_pos)
                         {
                             func = f;
-                            pos_min = match.position();
+                            next_match = match;
+                            next_match_pos = match.position();
+                            if (!next_match_pos) break;
                         }
+                }
 
-                if(pos_min != std::numeric_limits<int>::max())
+                if(next_match_pos != std::numeric_limits<int>::max())
                 {
-                    regex_namespace::regex_search(ret, match,
+                    ret = regex_replace(ret,
                         regex_namespace::basic_regex<Char>(func.first),
-                        regex_namespace::regex_constants::format_first_only);
-
-                    ret = regex_namespace::regex_replace(ret,
-                        regex_namespace::basic_regex<Char>(func.first),
-                        call(func.second, functions, match),
+                        call<regex_namespace::basic_regex<Char>>(func.second, functions, next_match),
                         regex_namespace::regex_constants::format_first_only);
 
                     fg = 0u;
                     continue;
                 }
+
                 break;
             }
 
@@ -61,17 +60,30 @@ auto call(
         return ret;
     }
 }
-
-template auto call(
+/*
+template auto call<std::regex>(
     function_body<char> const & _this,
     ordered_functions<char> const & functions,
     basic_smatch<char> const & arg)
     -> std::basic_string<char>;
-
-template auto call(
+*/
+template auto call<std::wregex>(
     function_body<wchar_t> const & _this,
     ordered_functions<wchar_t> const & functions,
     basic_smatch<wchar_t> const & arg)
     -> std::basic_string<wchar_t>;
 
+/*
+template auto call<boost::regex>(
+    function_body<char> const & _this,
+    ordered_functions<char> const & functions,
+    basic_smatch<char> const & arg)
+    -> std::basic_string<char>;
+*//*
+template auto call<boost::wregex>(
+    function_body<wchar_t> const & _this,
+    ordered_functions<wchar_t> const & functions,
+    basic_smatch<wchar_t> const & arg)
+    -> std::basic_string<wchar_t>;
+*/
 }

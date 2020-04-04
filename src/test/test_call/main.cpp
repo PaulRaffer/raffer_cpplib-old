@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -19,6 +20,7 @@ using namespace raffer;
 
 int main()
 {
+    //boost::basic_regex<Char>::flag_type d;
     enable_unicode();
 
     auto std_func = unordered_functions<Char>{};
@@ -34,7 +36,7 @@ int main()
             func.at(L"").at(p).insert_or_assign(arg.str(2), arg.str(3));
             //ret = "1";
             //ret = arg.at(2);
-            return L"/*TODO*/";
+            return L"TODO";
         };
 
     function_body_ptr<Char> std_func_func_std =
@@ -44,27 +46,29 @@ int main()
             std::wstringstream(arg.str(1)) >> p;
             //std::wcout << arg.str(3);
             func.at(L"").at(p).insert_or_assign(arg.str(2), std_func[arg.str(3)]);
-            return L"/*TODO*/";
+            return L"TODO";
         };
 
-    /*Function_body_ptr<Char> std_func_cmd =
-        [&func](regex_namespace::wsmatch const & arg) -> std::wstring
-        {
-            std::wcout << "!!!" << arg.str(1) << "???" << std::endl;
-            std::wstring output;
-            return call<Char>(arg.str(1), func, regex_namespace::wsmatch{});
-        };*/
+    //Function_body_ptr<Char> std_func_cmd =
+        //[&func](regex_namespace::wsmatch const & arg) -> std::wstring
+        //{
+            //std::wcout << "!!!" << arg.str(1) << "???" << std::endl;
+            //std::wstring output;
+            //return call<Char>(arg.str(1), func, regex_namespace::wsmatch{});
+        //};
 
     function_body_ptr<Char> std_func_script =
         [&func](regex_namespace::wsmatch const & arg)
         {
-            /*std::wifstream file("main.txt");
-            std::wstring script((std::istreambuf_iterator<Char>(file)), std::istreambuf_iterator<Char>());
+            //std::wifstream file("main.txt");
+            //std::wstring script((std::istreambuf_iterator<Char>(file)), std::istreambuf_iterator<Char>());
+
             //std::stringstream buf;
             //buf << file.rdbuf();
             //std::string script = buf.str();
-            file.close();
-            return call(script, func, regex_namespace::wsmatch{});*/
+
+            //file.close();
+            //return call(script, func, regex_namespace::wsmatch{});
 
             FILE * file = _wfopen(arg.str(1).c_str(), L"r");
             _setmode(_fileno(file), _O_U8TEXT);
@@ -74,13 +78,13 @@ int main()
             auto script = (Char*)calloc(chars, sizeof(Char));
             fread(script, sizeof(Char), chars, file);
 
-            return call<Char>((Char*)script, func.at(L""), regex_namespace::wsmatch{});
+            return call<regex_namespace::basic_regex<Char>>((Char*)script, func.at(L""), regex_namespace::wsmatch{});
         };
 
     function_body_ptr<Char> std_basic_func_evaluate =
         [&func](regex_namespace::wsmatch const & arg)
         {
-            return call<Char>(arg.str(1), func.at(L""), regex_namespace::wsmatch{});
+            return call<regex_namespace::basic_regex<Char>>(arg.str(1), func.at(L""), regex_namespace::wsmatch{});
         };
 
 
@@ -102,7 +106,7 @@ int main()
                     }
                     std::wcout << std::endl;
                 }
-            return L"";/*TODO*/
+            return L""; // TODO
         };
 
     std::basic_string<Char> scope = L"";
@@ -186,7 +190,7 @@ int main()
 
     //call<Char>(LR"(script "script/std/init.script")", func, regex_namespace::wsmatch{});
     // for boost:
-    call<Char>(LR"(script "script/boost/main.script")", func.at(L""), regex_namespace::wsmatch{});
+    call<regex_namespace::basic_regex<Char>>(LR"(script "script/boost/main.script")", func.at(L""), regex_namespace::wsmatch{});
 
     std::wstring input;
 
@@ -195,6 +199,6 @@ int main()
         std::fflush(stdin);
         std::wcout << "(" << scope << ")>>> ";
         while (!std::getline(std::wcin, input));
-        std::wcout << "<<< " << call<Char>(input, func[scope], regex_namespace::wsmatch{}) << std::endl;
+        std::wcout << "<<< " << call<regex_namespace::basic_regex<Char>>(input, func[scope], boost::wsmatch{}) << std::endl;
     }
 }
