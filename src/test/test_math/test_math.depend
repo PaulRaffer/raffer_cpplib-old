@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1586173451 source:c:\users\paul\paul\projekte\raffer_cpplib\src\lib\math\math.cpp
+	"math.hpp"
+	<cmath>
+	<iostream>
+
+1586174023 c:\users\paul\paul\projekte\raffer_cpplib\src\lib\math\math.hpp
+
+1586173733 source:c:\users\paul\paul\projekte\raffer_cpplib\src\test\test_math\main.cpp
+	<iostream>
+	"../../lib/math/math.hpp"
+	<cmath>
+
