@@ -8,11 +8,11 @@
 #include <unordered_map>
 
 
-#include <regex>
-namespace regex_namespace = std;
+//#include <regex>
+//namespace regex_namespace = std;
 // for boost:
-//#include <boost/regex.hpp>
-//namespace regex_namespace = boost;
+#include <boost/regex.hpp>
+namespace regex_namespace = boost;
 
 namespace raffer
 {
@@ -56,14 +56,12 @@ using ordered_functions =
 
 
 
-
-
-template <typename Char = char>
+template <typename Regex>
 auto call(
-    function_body<Char> const & _this,
-    ordered_functions<Char> const & functions,
-    basic_smatch<Char> const & arg)
-    -> std::basic_string<Char>;
+    function_body<typename Regex::value_type> const & _this,
+    ordered_functions<typename Regex::value_type> const & functions,
+    regex_namespace::match_results<typename std::basic_string<typename Regex::value_type>::const_iterator> const & arg)
+    -> std::basic_string<typename Regex::value_type>;
 
 
 }
