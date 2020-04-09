@@ -1,5 +1,5 @@
 #ifndef RAFFER_TYPE_TRAITS_HPP
-#define RAFFER_TYPE TRAITS_HPP
+#define RAFFER_TYPE_TRAITS_HPP
 
 #include "is_container.hpp"
 #include "is_stl_container.hpp"
