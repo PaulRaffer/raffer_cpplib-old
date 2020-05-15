@@ -1,0 +1,12 @@
+[
+{
+  "directory": "C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/finally/test1/build",
+  "command": "C:/CodeBlocks/gcc-8.2-32/bin/c++.exe    -g   -o CMakeFiles/finally_test1.dir/C_/Users/Paul/Paul/Projekte/raffer_cpplib/src/include/raffer/finally/cpp11/finally.cpp.obj -c C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/include/raffer/finally/cpp11/finally.cpp",
+  "file": "C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/include/raffer/finally/cpp11/finally.cpp"
+},
+{
+  "directory": "C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/finally/test1/build",
+  "command": "C:/CodeBlocks/gcc-8.2-32/bin/c++.exe    -g   -o CMakeFiles/finally_test1.dir/main.cpp.obj -c C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/finally/test1/main.cpp",
+  "file": "C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/finally/test1/main.cpp"
+}
+]

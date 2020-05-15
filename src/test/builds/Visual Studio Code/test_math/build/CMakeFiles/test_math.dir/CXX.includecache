@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/lib/math/cpp14/math.hpp
+cmath
+-
+
+C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/lib/math/cpp20/math.hpp
+cmath
+-
+
+C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/lib/math/math.hpp
+cpp20/math.hpp
+C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/lib/math/cpp20/math.hpp
+cpp14/math.hpp
+C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/lib/math/cpp14/math.hpp
+
+C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/test_math/main.cpp
+../../lib/math/math.hpp
+C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/lib/math/math.hpp
+iostream
+-
+
