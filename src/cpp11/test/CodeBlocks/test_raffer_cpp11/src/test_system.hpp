@@ -3,8 +3,8 @@
 #ifndef RAFFER_TEST_SYSTEM_HPP
 #define RAFFER_TEST_SYSTEM_HPP
 
-
 #include "../../../../include/raffer/system/system.hpp"
+
 
 #include <iostream>
 
@@ -24,9 +24,9 @@ void clear_screen()
 
     std::cout << "Hello ";
     raffer::clear_screen();
-    std::cout << "World!";
+    std::cout << "World!\n";
 
-    std::cout << std::endl << std::endl;
+    std::cout << std::endl;
 }
 
 void enable_unicode()
@@ -38,22 +38,22 @@ void enable_unicode()
 
     {
         std::wstring str;
-        std::cout << "\nPlease enter a unicode string: ";
+        std::cout << "Please enter a unicode string: ";
         std::wcin >> str;
-        std::wcout << str;
+        std::wcout << str << '\n';
         std::wcin.sync();
     }
     {
         std::wstring str;
-        std::cout << "\nPlease enter a unicode string: ";
+        std::cout << "Please enter a unicode string: ";
         raffer::enable_unicode_stdio();
         std::wcin >> str;
-        std::wcout << str;
+        std::wcout << str << '\n';
         std::wcin.sync();
         raffer::disable_unicode_stdio();
     }
 
-    std::cout << std::endl << std::endl;
+    std::cout << std::endl;
 }
 
 
@@ -64,11 +64,12 @@ void is_down()
         "| is_down():                   |\n"
         "+------------------------------+\n";
 
-    std::cout << "\nIs key 'A' pressed? ";
+    std::cout << "Is key 'A' pressed? ";
     for (int i = 0; i < 100000; ++i)
         std::cout << raffer::is_down(key('A')) << '\b';
+    std::cout << '\n';
 
-    std::cout << std::endl << std::endl;
+    std::cout << std::endl;
 }
 
 void all()
@@ -76,9 +77,6 @@ void all()
     clear_screen();
     enable_unicode();
     is_down();
-    std::cout << __cplusplus;
-    std::cin.ignore();
-
 }
 
 } // namespace system
