@@ -4,8 +4,13 @@
 #define RAFFER_FINALLY_MACROS_HPP
 
 
+// interface
+// {
+
 #define FINALLY finally finally__{[&]{
 #define END }};
+
+// }
 
 
 #endif // RAFFER_FINALLY_MACROS_HPP

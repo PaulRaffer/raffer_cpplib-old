@@ -6,7 +6,9 @@
 namespace raffer // implementation
 {
 
-finally::finally(std::function<void ()> action) : action{std::move(action)} {}
+finally::finally(std::function<void ()> action)
+: action{std::move(action)} {}
+
 finally::~finally() { action(); }
 
 } // namespace raffer
