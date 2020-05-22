@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1590172341 source:c:\users\paul\paul\projekte\raffer_cpplib\src\cpp11\test\codeblocks\test_raffer_cpp11\src\main.cpp
+	"test_system.hpp"
+	"../../../../include/raffer/lang/cpp/cpp.hpp"
+
+1590088263 c:\users\paul\paul\projekte\raffer_cpplib\src\cpp11\test\codeblocks\test_raffer_cpp11\src\test_system.hpp
+	"../../../../include/raffer/system/system.hpp"
+	<iostream>
+
+1590158928 c:\users\paul\paul\projekte\raffer_cpplib\src\cpp11\include\raffer\system\system.hpp
+	<cstdio>
+
+1590171890 source:c:\users\paul\paul\projekte\raffer_cpplib\src\cpp11\include\raffer\system\system.cpp
+	"system.hpp"
+	<cstdlib>
+	<fcntl.h>
+	<io.h>
+	<windows.h>
+
+1590172794 c:\users\paul\paul\projekte\raffer_cpplib\src\cpp11\include\raffer\lang\cpp\cpp.hpp
+
