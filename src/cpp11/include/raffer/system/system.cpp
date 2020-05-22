@@ -2,13 +2,14 @@
 
 #include "system.hpp"
 
+
 #include <cstdlib>
 
-#include <cstdio>
-#include <fcntl.h>
-#include <io.h>
-
-#include <windows.h>
+#if defined(_WIN32)
+    #include <fcntl.h>
+    #include <io.h>
+    #include <windows.h>
+#endif
 
 namespace raffer // implementation
 {
@@ -24,23 +25,46 @@ auto clear_screen() -> int
     #endif
 }
 
-auto enable_unicode() -> void
+auto enable_unicode(FILE * file) -> int
 {
     #if defined(_WIN32)
-        _setmode(_fileno(stdin), _O_U16TEXT);
-        _setmode(_fileno(stdout), _O_U16TEXT);
+        return _setmode(_fileno(file), _O_U16TEXT);
     #endif
 }
 
-auto is_down(int key) -> bool
+auto disable_unicode(FILE * file) -> int
 {
     #if defined(_WIN32)
-        return GetAsyncKeyState(key);
+        return _setmode(_fileno(file), _O_TEXT);
+    #endif
+}
+
+
+auto enable_unicode_stdio() -> void
+{
+    enable_unicode(stdin);
+    enable_unicode(stdout);
+}
+
+auto disable_unicode_stdio() -> void
+{
+    disable_unicode(stdin);
+    disable_unicode(stdout);
+}
+
+auto is_down(key k) -> bool
+{
+    #if defined(_WIN32)
+        return GetAsyncKeyState(static_cast<int>(k));
     #else
         return false;
     #endif
 }
 
+auto is_up(key k) -> bool
+{ return !is_down(k); }
+
 } // namespace raffer
+
 
 #endif // #if __cplusplus >= 201103L
