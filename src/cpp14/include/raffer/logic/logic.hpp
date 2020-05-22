@@ -1,8 +1,8 @@
+#if __cplusplus >= 201402L
+
 #ifndef RAFFER_LOGIC_LOGIC_HPP
 #define RAFFER_LOGIC_LOGIC_HPP
 
-
-#if __cplusplus >= 201402L
 
 namespace raffer // interface
 {
@@ -25,12 +25,8 @@ auto bit_xnor(auto... x);
 
 }
 
-#endif // __cplusplus >= 201402L
 
 
-
-
-#if __cplusplus >= 201402L
 
 namespace raffer // implementation
 {
@@ -49,7 +45,7 @@ auto bit_nor(auto... x) { return ~bit_or(x...); }
 
 }
 
-#endif // __cplusplus >= 201402L
-
 
 #endif // RAFFER_LOGIC_LOGIC_HPP
+
+#endif // __cplusplus >= 201402L
