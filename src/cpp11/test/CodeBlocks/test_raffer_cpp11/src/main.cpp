@@ -1,7 +1,8 @@
 #include "test_system.hpp"
-#include "../../../../include/raffer/lang/cpp/cpp.hpp"
+#include "test_finally.hpp"
 
 int main()
 {
-    raffer::test__::system::all();
+    raffer::test__::finally::all();
+    std::cin.ignore();
 }

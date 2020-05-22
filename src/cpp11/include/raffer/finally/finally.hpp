@@ -1,7 +1,8 @@
+#if __cplusplus >= 201103L
+
 #ifndef RAFFER_FINALLY_FINALLY_HPP
 #define RAFFER_FINALLY_FINALLY_HPP
 
-#if __cplusplus >= 201103L
 
 #include <functional>
 
@@ -19,6 +20,7 @@ public:
 
 } // namespace raffer
 
-#endif //  __cplusplus >= 201103L
 
 #endif // RAFFER_FINALLY_FINALLY_HPP
+
+#endif //  __cplusplus >= 201103L

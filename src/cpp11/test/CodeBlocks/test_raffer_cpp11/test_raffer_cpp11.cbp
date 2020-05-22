@@ -32,10 +32,14 @@
 			<Add option="-Wall" />
 			<Add option="-std=c++11" />
 		</Compiler>
+		<Unit filename="../../../include/raffer/finally/finally.cpp" />
+		<Unit filename="../../../include/raffer/finally/finally.hpp" />
+		<Unit filename="../../../include/raffer/finally/macros.hpp" />
 		<Unit filename="../../../include/raffer/lang/cpp/cpp.hpp" />
 		<Unit filename="../../../include/raffer/system/system.cpp" />
 		<Unit filename="../../../include/raffer/system/system.hpp" />
 		<Unit filename="src/main.cpp" />
+		<Unit filename="src/test_finally.hpp" />
 		<Unit filename="src/test_system.hpp" />
 		<Extensions>
 			<code_completion />
