@@ -1,0 +1,3 @@
+C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/cpp17/test/logic/build/CMakeFiles/test_logic.dir
+C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/cpp17/test/logic/build/CMakeFiles/edit_cache.dir
+C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/cpp17/test/logic/build/CMakeFiles/rebuild_cache.dir
