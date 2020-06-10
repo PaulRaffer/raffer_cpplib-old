@@ -3,7 +3,7 @@
 #ifndef RAFFER_SYSTEM_SYSTEM_HPP
 #define RAFFER_SYSTEM_SYSTEM_HPP
 
-#define raffer_cpp_lib_system__ 202005L
+#define raffer_cpplib_system__ 202005L
 
 
 #include <cstdio>
