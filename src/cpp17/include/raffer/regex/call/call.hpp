@@ -1,5 +1,10 @@
+#if __cplusplus >= 201703L
+
 #ifndef RAFFER_REGEX_CALL_CALL_HPP
 #define RAFFER_REGEX_CALL_CALL_HPP
+
+#define raffer_cpplib_regex_call__ 202006L
+
 
 #include <iostream>
 #include <sstream>
@@ -8,13 +13,14 @@
 #include <unordered_map>
 
 
-//#include <regex>
-//namespace regex_namespace = std;
+#include <regex>
+namespace regex_namespace = std;
 // for boost:
-#include <boost/regex.hpp>
-namespace regex_namespace = boost;
+//#include <boost/regex.hpp>
+//namespace regex_namespace = boost;
 
-namespace raffer
+
+namespace raffer // interface
 {
 
 template <typename Char>
@@ -55,15 +61,16 @@ using ordered_functions =
         unordered_functions<Char>>;
 
 
-
-template <typename Regex>
+template <typename Char = char>
 auto call(
-    function_body<typename Regex::value_type> const & _this,
-    ordered_functions<typename Regex::value_type> const & functions,
-    regex_namespace::match_results<typename std::basic_string<typename Regex::value_type>::const_iterator> const & arg)
-    -> std::basic_string<typename Regex::value_type>;
+    function_body<Char> const & this_,
+    ordered_functions<Char> const & functions,
+    basic_smatch<Char> const & arg)
+    -> std::basic_string<Char>;
 
+} // namespace raffer
 
-}
 
 #endif // RAFFER_REGEX_CALL_CALL_HPP
+
+#endif // __cplusplus >= 201703L

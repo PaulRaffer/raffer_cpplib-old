@@ -1,0 +1,27 @@
+
+PRIORITY  0 anyChar IS (.|\n)
+PRIORITY  1 //.*|/\*((?!\*/)(anyChar))*\*/ IS std::basic::func::ignore
+
+
+PRIORITY  1 _ IS \s*
+
+PRIORITY  2 TYPE IS PRIORITY(3)
+PRIORITY  2 FUNC IS PRIORITY(30)
+
+
+PRIORITY  3 String IS "([^"]*)"
+
+PRIORITY  3 leftBracket IS [\(\[\{]
+
+PRIORITY  6 system\s*String IS std::basic::func::system
+
+
+PRIORITY  7 c IS std::phys::const::c
+
+script "std/math.script"
+script "std/logic.script"
+script "std/inout.script"
+
+
+
+

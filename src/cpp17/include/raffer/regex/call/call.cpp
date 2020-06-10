@@ -1,90 +1,78 @@
+#if __cplusplus >= 201703L
+
 #include "call.hpp"
 
-#include <iostream>
-#include "../../system/system.hpp"
-#include <windows.h>
+
+#include "../../../../../cpp11/include/raffer/system/system.hpp"
+
 
 namespace raffer
 {
 
-template <typename Regex>
+template <typename Char>
 auto call(
-    function_body<typename Regex::value_type> const & _this,
-    ordered_functions<typename Regex::value_type> const & functions,
-    regex_namespace::match_results<typename std::basic_string<typename Regex::value_type>::const_iterator> const & arg)
-    -> std::basic_string<typename Regex::value_type>
+    function_body<Char> const & this_,
+    ordered_functions<Char> const & functions,
+    basic_smatch<Char> const & arg)
+    -> std::basic_string<Char>
 {
-    using Char = typename Regex::value_type;
-
-    try { return std::get<function_body_ptr<Char>>(_this)(arg); }
-    catch (std::bad_variant_access const &)
+    if (std::holds_alternative<function_body_ptr<Char>>(this_))
+        return std::get<function_body_ptr<Char>>(this_)(arg);
+    else
     {
-        std::basic_string<Char> ret = std::get<std::basic_string<Char>>(_this);
+        auto ret = std::get<std::basic_string<Char>>(this_);
 
-        for (auto fg = 0u; fg < functions.size(); ++fg)
-            while (!is_down(VK_ESCAPE))
+        for (auto fg = cbegin(functions); fg != cend(functions); ++fg)
+            for (auto func_found = true; is_up(raffer::key::esc) && func_found; )
             {
                 auto func = function<Char>{};
-                auto next_match = regex_namespace::match_results<typename std::basic_string<Char>::const_iterator>{};
-                auto next_match_pos = std::numeric_limits<int>::max();
+                auto next_match = basic_smatch<Char>{};
 
-                for (auto & f : functions.at(fg))
+                func_found = false;
                 {
-                    auto match = basic_smatch<Char>{};
-                    if (regex_search(ret, match,
-                        regex_namespace::basic_regex<Char>(f.first),
-                        regex_namespace::regex_constants::format_first_only))
-                        if (match.position() < next_match_pos)
+                    auto next_match_pos = std::numeric_limits<typename basic_smatch<Char>::difference_type>::max();
+                    for (auto const & f : *fg)
+                        if (auto match = basic_smatch<Char>{};
+                            regex_search(ret, match,
+                            regex_namespace::basic_regex<Char>(f.first),
+                            regex_namespace::regex_constants::format_first_only) &&
+                            match.position() < next_match_pos)
                         {
                             func = f;
-                            next_match = match;
-                            next_match_pos = match.position();
-                            if (!next_match_pos) break;
+                            func_found = true;
+                            if ((next_match_pos = (next_match = match).position()) == 0)
+                                break;
                         }
                 }
 
-                if(next_match_pos != std::numeric_limits<int>::max())
+                if(func_found)
                 {
                     ret = regex_replace(ret,
                         regex_namespace::basic_regex<Char>(func.first),
-                        call<regex_namespace::basic_regex<Char>>(func.second, functions, next_match),
+                        call<Char>(func.second, functions, next_match),
                         regex_namespace::regex_constants::format_first_only);
 
-                    fg = 0u;
-                    continue;
+                    fg = begin(functions);
                 }
-
-                break;
             }
 
-        //std::wcout << std::endl << L"<<<<<<<<<<<<<<<<<<<<<<<<" << std::endl << ret << std::endl << L">>>>>>>>>>>>>>>>>>>>>>>>" << std::endl;
         return ret;
     }
 }
-/*
-template auto call<std::regex>(
-    function_body<char> const & _this,
+
+template auto call<char>(
+    function_body<char> const & this_,
     ordered_functions<char> const & functions,
     basic_smatch<char> const & arg)
     -> std::basic_string<char>;
-*/
-/*template auto call<std::wregex>(
-    function_body<wchar_t> const & _this,
-    ordered_functions<wchar_t> const & functions,
-    basic_smatch<wchar_t> const & arg)
-    -> std::basic_string<wchar_t>;
-*/
-/*
-template auto call<boost::regex>(
-    function_body<char> const & _this,
-    ordered_functions<char> const & functions,
-    basic_smatch<char> const & arg)
-    -> std::basic_string<char>;
-*/
-template auto call<boost::wregex>(
-    function_body<wchar_t> const & _this,
+
+template auto call<wchar_t>(
+    function_body<wchar_t> const & this_,
     ordered_functions<wchar_t> const & functions,
     basic_smatch<wchar_t> const & arg)
     -> std::basic_string<wchar_t>;
 
-}
+} // namespace raffer
+
+
+#endif // __cplusplus >= 201703L
