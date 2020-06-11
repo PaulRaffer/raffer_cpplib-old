@@ -15,6 +15,8 @@
 
 #include "call.hpp"
 
+#include <cmath>
+#include "../../type/type.hpp"
 
 
 namespace raffer // interface
@@ -29,6 +31,8 @@ template <> constexpr auto & basic_cin<char> = std::cin;
 template <> constexpr auto & basic_cin<wchar_t> = std::wcin;
 
 } // namespace raffer
+
+
 
 
 
@@ -87,8 +91,6 @@ template <typename Char> [[nodiscard]] auto std_math_func_sin(basic_smatch<Char>
 
 
 
-#include <cmath>
-#include "../../type/type.hpp"
 
 namespace raffer // implementation
 {

@@ -1,8 +1,11 @@
+#if __cplusplus >= 202002L
+
 #ifndef RAFFER_MATH_MATH_HPP
 #define RAFFER_MATH_MATH_HPP
 
 
-#if __cplusplus >= 202002L
+#include <cmath>
+
 
 namespace raffer // interface
 {
@@ -15,14 +18,9 @@ namespace raffer // interface
 
 } // namespace raffer
 
-#endif // __cplusplus >= 202002L
 
 
 
-
-#if __cplusplus >= 202002L
-
-#include <cmath>
 
 namespace raffer // implementation
 {
@@ -50,7 +48,7 @@ constexpr auto prime(std::integral auto x)
 
 } // namespace raffer
 
-#endif // __cplusplus >= 202002L
-
 
 #endif // RAFFER_MATH_MATH_HPP
+
+#endif // __cplusplus >= 202002L

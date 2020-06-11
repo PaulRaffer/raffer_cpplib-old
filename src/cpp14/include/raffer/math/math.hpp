@@ -1,8 +1,11 @@
+#if __cplusplus >= 201402L
+
 #ifndef RAFFER_MATH_MATH_HPP
 #define RAFFER_MATH_MATH_HPP
 
 
-#if __cplusplus >= 201402L
+#include <cmath>
+
 
 namespace raffer // interface
 {
@@ -15,14 +18,9 @@ template <typename T> [[nodiscard]] constexpr auto prime(T x) -> int;
 
 } // namespace raffer
 
-#endif // __cplusplus >= 201402L
 
 
 
-
-#if __cplusplus >= 201402L
-
-#include <cmath>
 
 namespace raffer // implementation
 {
@@ -50,7 +48,7 @@ template <typename T> constexpr auto prime(T x) -> int
 
 } // namespace raffer
 
-#endif // __cplusplus >= 201402L
-
 
 #endif // RAFFER_MATH_MATH_HPP
+
+#endif // __cplusplus >= 201402L

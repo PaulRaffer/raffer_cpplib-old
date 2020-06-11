@@ -11,6 +11,7 @@
     #include <windows.h>
 #endif
 
+
 namespace raffer // implementation
 {
 
@@ -67,4 +68,4 @@ auto is_up(key k) -> bool
 } // namespace raffer
 
 
-#endif // #if __cplusplus >= 201103L
+#endif // __cplusplus >= 201103L

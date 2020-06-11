@@ -3,7 +3,7 @@
 #ifndef RAFFER_LANG_CPP_CPP_HPP
 #define RAFFER_LANG_CPP_CPP_HPP
 
-#define raffer_cpp_lib_lang__ 202005L
+#define raffer_cpplib_lang__ 202005L
 
 
 namespace raffer // interface

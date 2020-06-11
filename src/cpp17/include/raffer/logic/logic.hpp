@@ -6,6 +6,7 @@
 
 #include <utility>
 
+
 namespace raffer // interface
 {
 
@@ -26,6 +27,7 @@ template <typename... T> auto bit_xor(T && ...x);
 template <typename... T> auto bit_xnor(T && ...x);
 
 } // namespace raffer
+
 
 
 
