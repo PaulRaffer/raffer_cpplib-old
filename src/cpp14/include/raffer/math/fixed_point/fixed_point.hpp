@@ -1,14 +1,15 @@
+#if __cplusplus >= 201402L
+
 #ifndef RAFFER_MATH_FIXED_POINT_FIXED_POINT_HPP
 #define RAFFER_MATH_FIXED_POINT_FIXED_POINT_HPP
 
-
-#if __cplusplus >= 201402L
 
 #include <cstdint>
 #include <ratio>
 #include <type_traits>
 #include <utility>
 #include <iostream>
+
 
 namespace raffer // interface
 {
@@ -79,7 +80,7 @@ template <typename Rep, typename Factor>
 
 } // namespace raffer
 
-#endif // __cplusplus >= 201402L
-
 
 #endif // RAFFER_MATH_FIXED_POINT_FIXED_POINT_HPP
+
+#endif // __cplusplus >= 201402L

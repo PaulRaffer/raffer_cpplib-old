@@ -1,10 +1,11 @@
+#if __cplusplus >= 202002L
+
 #ifndef RAFFER_POINT_POINT_2D_HPP
 #define RAFFER_POINT_POINT_2D_HPP
 
 
-#if __cplusplus >= 202002L
-
 #include "point.hpp"
+
 
 namespace raffer // interface
 {
@@ -26,12 +27,9 @@ public:
 
 } // namespace raffer
 
-#endif // __cplusplus >= 202002L
 
 
 
-
-#if __cplusplus >= 202002L
 
 namespace raffer // implementation
 {
@@ -48,7 +46,7 @@ template <typename T> auto point_2d<T>::set_y(T y) { (*this)[1] = y; }
 
 } // namespace raffer
 
-#endif // __cplusplus >= 202002L
-
 
 #endif // RAFFER_POINT_POINT_2D_HPP
+
+#endif // __cplusplus >= 202002L

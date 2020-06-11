@@ -1,13 +1,14 @@
+#if __cplusplus >= 201402L
+
 #ifndef RAFFER_MATH_FRACTION_FRACTION_HPP
 #define RAFFER_MATH_FRACTION_FRACTION_HPP
 
 
-#if __cplusplus >= 201402L
-
-#include <iostream>
 #include <utility>
+#include <iostream>
 
 #include "../../operators/comparison_operators.hpp"
+
 
 namespace raffer // interface
 {
@@ -43,8 +44,10 @@ public:
 template <typename Num, typename Den>
 [[nodiscard]] constexpr auto get_num(fraction<Num, Den> const & f) -> Num;
 
+
 template <typename Num, typename Den>
 auto set_num(fraction<Num, Den> & f, Num const & num) -> void;
+
 template <typename Num, typename Den>
 auto set_num(fraction<Num, Den> & f, Num && num) noexcept -> void;
 
@@ -53,22 +56,24 @@ auto set_num(fraction<Num, Den> & f, Num && num) noexcept -> void;
 template <typename Num, typename Den>
 [[nodiscard]] constexpr auto get_den(fraction<Num, Den> const & f) -> Den;
 
+
 template <typename Num, typename Den>
 auto set_den(fraction<Num, Den> & f, Den const & den) -> void;
+
 template <typename Num, typename Den>
 auto set_den(fraction<Num, Den> & f, Den && den) noexcept -> void;
 
 
 
 
-
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
 [[nodiscard]] constexpr auto const cmp(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
+
 template <typename Lhs_num, typename Lhs_den, typename Rhs>
 [[nodiscard]] constexpr auto const cmp(fraction<Lhs_num, Lhs_den> const & lhs, Rhs const & rhs);
+
 template <typename Lhs, typename Rhs_num, typename Rhs_den>
 [[nodiscard]] constexpr auto const cmp(Lhs const & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
-
 
 
 
@@ -89,7 +94,6 @@ template <typename Lhs_num, typename Lhs_den>
 auto const operator++(fraction<Lhs_num, Lhs_den> & lhs, int);
 
 
-
 template <typename Rhs_num, typename Rhs_den>
 [[nodiscard]] constexpr auto const operator-(fraction<Rhs_num, Rhs_den> const & rhs);
 
@@ -106,13 +110,11 @@ template <typename Lhs_num, typename Lhs_den>
 auto const operator--(fraction<Lhs_num, Lhs_den> & lhs, int);
 
 
-
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
 [[nodiscard]] constexpr auto const operator*(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
 auto & operator*=(fraction<Lhs_num, Lhs_den> & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
-
 
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
@@ -123,17 +125,15 @@ auto & operator/=(fraction<Lhs_num, Lhs_den> & lhs, fraction<Rhs_num, Rhs_den> c
 
 
 
+
 template <typename Num, typename Den>
 auto operator<<(std::ostream & os, fraction<Num, Den> const & rhs) -> std::ostream &;
 
 } // namespace raffer
 
-#endif // __cplusplus >= 201402L
 
 
 
-
-#if __cplusplus >= 201402L
 
 namespace raffer // implementation
 {
@@ -147,7 +147,6 @@ constexpr fraction<Num, Den>::fraction(Num num, Den den)
 template <typename Num, typename Den>
 constexpr fraction<Num, Den>::operator double() const
 { return static_cast<double>(num) / static_cast<double>(den); }
-
 
 
 
@@ -186,6 +185,7 @@ template <typename Num, typename Den>
 constexpr auto get_num(fraction<Num, Den> const & f) -> Num
 { return f.get_num(); }
 
+
 template <typename Num, typename Den>
 auto set_num(fraction<Num, Den> & f, Num const & num) -> void
 { f.set_num(num); }
@@ -200,6 +200,7 @@ template <typename Num, typename Den>
 constexpr auto get_den(fraction<Num, Den> const & f) -> Den
 { return f.get_den(); }
 
+
 template <typename Num, typename Den>
 auto set_den(fraction<Num, Den> & f, Den const & den) -> void
 { f.set_den(den); }
@@ -207,7 +208,6 @@ auto set_den(fraction<Num, Den> & f, Den const & den) -> void
 template <typename Num, typename Den>
 auto set_den(fraction<Num, Den> & f, Den && den) noexcept -> void
 { f.set_den(std::move(den)); }
-
 
 
 
@@ -230,7 +230,6 @@ template <typename Lhs_num, typename Lhs_den, typename Rhs>
 template <typename Lhs, typename Rhs_num, typename Rhs_den>
 [[nodiscard]] constexpr auto const cmp(Lhs const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
 { return cmp(fraction<Lhs>{lhs}, rhs); }
-
 
 
 
@@ -264,7 +263,6 @@ auto const operator++(fraction<Lhs_num, Lhs_den> & lhs, int)
 }
 
 
-
 template <typename Rhs_num, typename Rhs_den>
 constexpr auto const operator-(fraction<Rhs_num, Rhs_den> const & rhs)
 {
@@ -294,7 +292,6 @@ auto const operator--(fraction<Lhs_num, Lhs_den> & lhs, int)
 }
 
 
-
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
 constexpr auto const operator*(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
 {
@@ -306,7 +303,6 @@ constexpr auto const operator*(fraction<Lhs_num, Lhs_den> const & lhs, fraction<
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
 auto & operator*=(fraction<Lhs_num, Lhs_den> & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
 { return lhs = lhs * rhs; }
-
 
 
 template <typename Num, typename Den>
@@ -329,14 +325,13 @@ auto & operator/=(fraction<Lhs_num, Lhs_den> & lhs, fraction<Rhs_num, Rhs_den> c
 
 
 
-
 template <typename Num, typename Den>
 auto operator<<(std::ostream & os, fraction<Num, Den> const & rhs) -> std::ostream &
 { return os << "(" << rhs.get_num() << "/" << rhs.get_den() << ")"; }
 
 } // namespace raffer
 
-#endif // __cplusplus >= 201402L
-
 
 #endif // RAFFER_MATH_FRACTION_FRACTION_HPP
+
+#endif // __cplusplus >= 201402L

@@ -1,11 +1,12 @@
+#if __cplusplus >= 201703L
+
 #ifndef RAFFER_SWITCH_SWITCH_HPP
 #define RAFFER_SWITCH_SWITCH_HPP
 
 
-#if __cplusplus >= 201703L
-
 #include <initializer_list>
 #include <utility>
+
 
 namespace raffer // interface
 {
@@ -14,12 +15,9 @@ constexpr auto equ(auto a, auto b);
 
 } // namespace raffer
 
-#endif // __cplusplus >= 201703L
 
 
 
-
-#if __cplusplus >= 201703L
 
 namespace raffer // implementation
 {
@@ -28,16 +26,11 @@ constexpr auto equ(auto a, auto b){ return a == b; }
 
 } // namespace raffer
 
-#endif // __cplusplus >= 201703L
 
 
 
 
-
-
-#if __cplusplus >= 201703L
-
-namespace raffer
+namespace raffer // interface
 {
 
 template <typename F_true, typename F_false = void (*)(), typename... Args>
@@ -48,14 +41,11 @@ constexpr auto switch_(T const & condition, std::initializer_list<std::pair<T co
 
 } // namespace raffer
 
-#endif // __cplusplus >= 201703L
 
 
 
 
-#if __cplusplus >= 201703L
-
-namespace raffer
+namespace raffer // implementation
 {
 
 template <typename F_true, typename F_false, typename... Args>
@@ -74,7 +64,7 @@ constexpr auto switch_(T const & condition, std::initializer_list<std::pair<T co
 
 } // namespace raffer
 
-#endif // __cplusplus >= 201703L
-
 
 #endif // RAFFER_SWITCH_SWITCH_HPP
+
+#endif // __cplusplus >= 201703L

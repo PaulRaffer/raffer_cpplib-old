@@ -1,11 +1,12 @@
+#if __cplusplus >= 202002L
+
 #ifndef RAFFER_POINT_POINT_HPP
 #define RAFFER_POINT_POINT_HPP
 
 
-#if __cplusplus >= 202002L
-
 #include <cstddef>
 #include <array>
+
 
 namespace raffer // interface
 {
@@ -31,14 +32,11 @@ private:
 template <std::size_t dimensions>
 [[nodiscard]] auto operator+(point<auto, dimensions> const & lhs, point<auto, dimensions> const & rhs);
 
-}
-
-#endif // __cplusplus >= 202002L
+} // namespace raffer
 
 
 
 
-#if __cplusplus >= 202002L
 
 namespace raffer // implementaion
 {
@@ -62,7 +60,7 @@ auto& point<T, dimensions>::operator[](int dimension)
 
 } // namespace raffer
 
-#endif // __cplusplus >= 202002L
-
 
 #endif // RAFFER_POINT_POINT_HPP
+
+#endif // __cplusplus >= 202002L

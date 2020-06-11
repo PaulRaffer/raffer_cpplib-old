@@ -1,8 +1,11 @@
+#if __cplusplus >= 201402L
+
 #ifndef RAFFER_OPERATORS_COMPARISON_OPERATORS_HPP
 #define RAFFER_OPERATORS_COMPARISON_OPERATORS_HPP
 
 
-#if __cplusplus >= 201402L
+#include <utility>
+
 
 namespace raffer // interface
 {
@@ -30,20 +33,15 @@ template <typename Lhs, typename Rhs>
 
 } // namespace raffer
 
-#endif // __cplusplus >= 201402L
 
 
 
-
-#if __cplusplus >= 201402L
-
-#include <utility>
 
 namespace raffer // implementation
 {
 
 template <typename Lhs, typename Rhs>
-[[nodiscard]] constexpr auto cmp(Lhs const & lhs, Rhs const & rhs)
+constexpr auto cmp(Lhs const & lhs, Rhs const & rhs)
 {
     return
         lhs < rhs ? -1 :
@@ -77,7 +75,7 @@ constexpr auto operator>=(Lhs && lhs, Rhs && rhs)
 
 } // namespace raffer
 
-#endif // __cplusplus >= 201402L
-
 
 #endif // RAFFER_OPERATORS_COMPARISON_OPERATORS_HPP
+
+#endif // __cplusplus >= 201402L

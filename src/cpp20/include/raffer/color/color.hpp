@@ -1,10 +1,11 @@
+#if __cplusplus >= 202002L
+
 #ifndef RAFFER_COLOR_COLOR_HPP
 #define RAFFER_COLOR_COLOR_HPP
 
 
-#if __cplusplus >= 202002L
-
 #include <iostream>
+
 
 namespace raffer // interface
 {
@@ -81,10 +82,14 @@ namespace raffer
 
 template <typename T> constexpr color<T>::color(T red, T green, T blue)
 : red{red}, green{green}, blue{blue} {}
+
 template <typename T> constexpr color<T>::color(T brightness)
 : red{brightness}, green{brightness}, blue{brightness} {}
+
 template <typename T> template <typename T1> constexpr color<T>::color(color<T1> const & rhs)
 : red(rhs.get_red()), green(rhs.get_green()), blue(rhs.get_blue()) {}
+
+
 
 
 template <typename T> constexpr auto color<T>::get_red() const { return red; }
@@ -97,43 +102,73 @@ template <typename T> constexpr auto color<T>::get_blue() const { return blue; }
 template <typename T> void color<T>::set_blue(T blue) { this->blue = blue; }
 
 
+
+
 constexpr auto operator+(color<auto> const & lhs, color<auto> const & rhs) -> auto const
 { return color{lhs.get_red() + rhs.get_red(), lhs.get_green() + rhs.get_green(), lhs.get_blue() + rhs.get_blue()}; }
+
 constexpr auto operator+(color<auto> const & lhs, auto rhs) -> auto const { return lhs + color{rhs}; }
+
 constexpr auto operator+(auto lhs, color<auto> const & rhs) -> auto const { return color{lhs} + rhs; }
+
 auto operator+=(color<auto> & lhs, auto rhs) -> auto & { return lhs = lhs + color{rhs}; }
+
 auto operator++(color<auto> & lhs) -> auto & { return lhs += 1; }
+
 auto operator++(color<auto> & lhs, int) -> auto const { auto temp = lhs; lhs += 1; return temp; }
+
 
 constexpr auto operator-(color<auto> const & lhs, color<auto> const & rhs) -> auto const
 { return color{lhs.get_red() - rhs.get_red(), lhs.get_green() - rhs.get_green(), lhs.get_blue() - rhs.get_blue()}; }
+
 constexpr auto operator-(color<auto> const & lhs, auto rhs) -> auto const { return lhs - color{rhs}; }
+
 constexpr auto operator-(auto lhs, color<auto> const & rhs) -> auto const { return color{lhs} - rhs; }
+
 auto operator-=(color<auto> & lhs, auto rhs) -> auto & { return lhs = lhs - color{rhs}; }
+
 auto operator--(color<auto> & lhs) -> auto & { return lhs -= 1; }
+
 auto operator--(color<auto> & lhs, int) -> auto const { auto temp = lhs; lhs -= 1; return temp; }
+
 
 constexpr auto operator*(color<auto> const & lhs, color<auto> const & rhs) -> auto const
 { return color{lhs.get_red() * rhs.get_red(), lhs.get_green() * rhs.get_green(), lhs.get_blue() * rhs.get_blue()}; }
+
 constexpr auto operator*(color<auto> const & lhs, auto rhs) -> auto const { return lhs * color{rhs}; }
+
 constexpr auto operator*(auto lhs, color<auto> const & rhs) -> auto const { return color{lhs} * rhs; }
+
 auto operator*=(color<auto> & lhs, auto rhs) -> auto & { return lhs = lhs * color{rhs}; }
+
 
 constexpr auto operator/(color<auto> const & lhs, color<auto> const & rhs) -> auto const
 { return color{lhs.get_red() / rhs.get_red(), lhs.get_green() / rhs.get_green(), lhs.get_blue() / rhs.get_blue()}; }
+
 constexpr auto operator/(color<auto> const & lhs, auto rhs) -> auto const { return lhs / color{rhs}; }
+
 constexpr auto operator/(auto lhs, color<auto> const & rhs) -> auto const { return color{lhs} / rhs; }
+
 auto operator/=(color<auto> & lhs, auto rhs) -> auto & { return lhs = lhs / color{rhs}; }
+
+
 
 
 constexpr auto operator==(color<auto> const & lhs, color<auto> const & rhs)
 { return lhs.get_red() == rhs.get_red() && lhs.get_green() == rhs.get_green() && lhs.get_blue() == rhs.get_blue(); }
+
 constexpr auto operator==(color<auto> const & lhs, auto rhs) { return lhs == color{rhs}; }
+
 constexpr auto operator==(auto lhs, color<auto> const & rhs) { return color{lhs} == rhs; }
 
+
 constexpr auto operator!=(color<auto> const & lhs, color<auto> const & rhs) { return !(lhs == rhs); }
+
 constexpr auto operator!=(color<auto> const & lhs, auto rhs) { return lhs != color{rhs}; }
+
 constexpr auto operator!=(auto lhs, color<auto> const & rhs) { return color{lhs} != rhs; }
+
+
 
 
 auto operator<<(std::ostream & os, color<auto> const & rhs) -> auto &
@@ -141,12 +176,9 @@ auto operator<<(std::ostream & os, color<auto> const & rhs) -> auto &
 
 } // namespace raffer
 
-#endif // __cplusplus >= 202002L
 
 
 
-
-#if __cplusplus >= 202002L
 
 namespace raffer // constants
 {
@@ -309,7 +341,7 @@ constexpr auto rebeccapurple        = color{0x66, 0x33, 0x99};
 
 } // namespace raffer
 
-#endif // __cplusplus >= 202002L
-
 
 #endif // RAFFER_COLOR_COLOR_HPP
+
+#endif // __cplusplus >= 202002L

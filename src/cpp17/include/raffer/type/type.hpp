@@ -6,11 +6,11 @@
 
 #include <string>
 #include <sstream>
+#include <cstring>
 
 #include <locale>
 #include <codecvt>
 
-#include <cstring>
 
 namespace raffer // interface
 {
@@ -40,6 +40,7 @@ template <>
 
 
 
+
 namespace raffer // implementation
 {
 
@@ -51,8 +52,6 @@ auto to_basic_string(T value) -> std::basic_string<Char>
     oss << value;
     return oss.str();
 }
-
-
 
 } // namespace raffer
 
