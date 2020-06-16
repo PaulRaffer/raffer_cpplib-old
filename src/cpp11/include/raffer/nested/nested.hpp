@@ -9,14 +9,14 @@
 namespace raffer // interface
 {
 
-    template <template <typename...> typename Template, std::size_t N, typename H, typename... T>
-    struct nested { using type = Template<typename nested<Template, N - 1, H, T...>::type, T...>; };
+template <template <typename...> typename Template, std::size_t N, typename H, typename... T>
+struct nested { using type = Template<typename nested<Template, N - 1, H, T...>::type, T...>; };
 
-    template <template <typename...> typename Template, typename H, typename... T>
-    struct nested<Template, 0, H, T...> { using type = H; };
+template <template <typename...> typename Template, typename H, typename... T>
+struct nested<Template, 0, H, T...> { using type = H; };
 
-    template <template <typename...> typename Template, std::size_t N, typename H, typename... T>
-    using nested_t = typename nested<Template, N, H, T...>::type;
+template <template <typename...> typename Template, std::size_t N, typename H, typename... T>
+using nested_t = typename nested<Template, N, H, T...>::type;
 
 } // namespace raffer
 
