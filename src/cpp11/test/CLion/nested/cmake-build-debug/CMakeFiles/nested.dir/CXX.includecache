@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/paulr/Paul/Projects/raffer_cpplib/src/cpp11/include/raffer/nested/nested.hpp
+
+C:/Users/paulr/Paul/Projects/raffer_cpplib/src/cpp11/test/CLion/nested/main.cpp
+iostream
+-
+type_traits
+-
+vector
+-
+../../../include/raffer/nested/nested.hpp
+C:/Users/paulr/Paul/Projects/raffer_cpplib/src/cpp11/include/raffer/nested/nested.hpp
+

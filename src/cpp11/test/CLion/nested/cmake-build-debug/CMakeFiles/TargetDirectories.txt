@@ -1,0 +1,3 @@
+C:/Users/paulr/Paul/Projects/raffer_cpplib/src/cpp11/test/CLion/nested/cmake-build-debug/CMakeFiles/nested.dir
+C:/Users/paulr/Paul/Projects/raffer_cpplib/src/cpp11/test/CLion/nested/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/paulr/Paul/Projects/raffer_cpplib/src/cpp11/test/CLion/nested/cmake-build-debug/CMakeFiles/rebuild_cache.dir
