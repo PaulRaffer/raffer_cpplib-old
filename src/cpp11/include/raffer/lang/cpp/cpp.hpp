@@ -3,7 +3,9 @@
 #ifndef RAFFER_LANG_CPP_CPP_HPP
 #define RAFFER_LANG_CPP_CPP_HPP
 
-#define raffer_cpplib_lang__ 202005L
+#define raffer_cpplib_lang__              202006L
+#define raffer_cpplib_lang_cpp_version__  202006L
+#define raffer_cpplib_lang_cpp_compiler__ 202005L
 
 
 namespace raffer // interface
@@ -12,6 +14,15 @@ namespace lang
 {
 namespace cpp
 {
+	
+enum class version : long
+{
+	cpp20 = 202002L,
+	cpp17 = 201703L,
+	cpp14 = 201402L,
+	cpp11 = 201103L,
+	cpp98 = 199711L,
+};
 
 enum class compiler
 {
