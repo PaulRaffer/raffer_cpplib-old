@@ -16,28 +16,28 @@ namespace raffer // interface
 template <typename Num, typename Den = Num>
 class fraction
 {
-    Num num;
-    Den den;
-
+	Num num;
+	Den den;
+	
 public:
-    using num_type = Num;
-    using den_type = Den;
-
-    constexpr fraction(Num num = 0, Den den = 1);
-
-    [[nodiscard]] explicit constexpr operator double() const;
-
-
-    [[nodiscard]] constexpr auto get_num() const -> Num;
-
-    auto set_num(Num const & num) -> void;
-    auto set_num(Num && num) noexcept -> void;
-
-
-    [[nodiscard]] constexpr auto get_den() const -> Den;
-
-    auto set_den(Den const & den) -> void;
-    auto set_den(Den && den) noexcept -> void;
+	using num_type = Num;
+	using den_type = Den;
+	
+	constexpr fraction(Num num = 0, Den den = 1);
+	
+	[[nodiscard]] explicit constexpr operator double() const;
+	
+	
+	[[nodiscard]] constexpr auto get_num() const -> Num;
+	
+	auto set_num(Num const & num) -> void;
+	auto set_num(Num && num) noexcept -> void;
+	
+	
+	[[nodiscard]] constexpr auto get_den() const -> Den;
+	
+	auto set_den(Den const & den) -> void;
+	auto set_den(Den && den) noexcept -> void;
 };
 
 
@@ -215,12 +215,12 @@ auto set_den(fraction<Num, Den> & f, Den && den) noexcept -> void
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
 [[nodiscard]] constexpr auto const cmp(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
 {
-    auto const lhs_num = lhs.get_num() * rhs.get_den();
-    auto const lhs_den = rhs.get_num() * lhs.get_den();
-    return
-        lhs_num < lhs_den ? -1 :
-        lhs_num > lhs_den ? 1 :
-        0;
+	auto const lhs_num = lhs.get_num() * rhs.get_den();
+	auto const lhs_den = rhs.get_num() * lhs.get_den();
+	return
+		lhs_num < lhs_den ? -1 :
+		lhs_num > lhs_den ? 1 :
+		0;
 }
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs>
@@ -241,9 +241,9 @@ constexpr auto const operator+(fraction<Rhs_num, Rhs_den> const & rhs)
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
 constexpr auto const operator+(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
 {
-    auto num = lhs.get_num() * rhs.get_den() + rhs.get_num() * lhs.get_den();
-    auto den = lhs.get_den() * rhs.get_den();
-    return fraction<decltype(num), decltype(den)>{num, den};
+	auto num = lhs.get_num() * rhs.get_den() + rhs.get_num() * lhs.get_den();
+	auto den = lhs.get_den() * rhs.get_den();
+	return fraction<decltype(num), decltype(den)>{num, den};
 }
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
@@ -257,18 +257,18 @@ auto & operator++(fraction<Lhs_num, Lhs_den> & lhs)
 template <typename Lhs_num, typename Lhs_den>
 auto const operator++(fraction<Lhs_num, Lhs_den> & lhs, int)
 {
-    auto const old = lhs;
-    ++lhs;
-    return old;
+	auto const old = lhs;
+	++lhs;
+	return old;
 }
 
 
 template <typename Rhs_num, typename Rhs_den>
 constexpr auto const operator-(fraction<Rhs_num, Rhs_den> const & rhs)
 {
-    auto num = -rhs.get_num();
-    auto den = rhs.get_den();
-    return fraction<decltype(num), decltype(den)>{num, den};
+	auto num = -rhs.get_num();
+	auto den = rhs.get_den();
+	return fraction<decltype(num), decltype(den)>{num, den};
 }
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
@@ -286,18 +286,18 @@ auto & operator--(fraction<Lhs_num, Lhs_den> & lhs)
 template <typename Lhs_num, typename Lhs_den>
 auto const operator--(fraction<Lhs_num, Lhs_den> & lhs, int)
 {
-    auto const old = lhs;
-    --lhs;
-    return old;
+	auto const old = lhs;
+	--lhs;
+	return old;
 }
 
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
 constexpr auto const operator*(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
 {
-    auto num = lhs.get_num() * rhs.get_num();
-    auto den = lhs.get_den() * rhs.get_den();
-    return fraction<decltype(num), decltype(den)>{num, den};
+	auto num = lhs.get_num() * rhs.get_num();
+	auto den = lhs.get_den() * rhs.get_den();
+	return fraction<decltype(num), decltype(den)>{num, den};
 }
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
@@ -308,10 +308,10 @@ auto & operator*=(fraction<Lhs_num, Lhs_den> & lhs, fraction<Rhs_num, Rhs_den> c
 template <typename Num, typename Den>
 constexpr auto const reciprocal(fraction<Num, Den> f)
 {
-    auto const num = f.get_num();
-    f.set_num(f.get_den());
-    f.set_den(num);
-    return f;
+	auto const num = f.get_num();
+	f.set_num(f.get_den());
+	f.set_den(num);
+	return f;
 }
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>

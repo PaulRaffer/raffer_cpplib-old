@@ -12,11 +12,11 @@ namespace raffer // interface
 
 class finally
 {
-    std::function<void ()> action;
+	std::function<void ()> action;
 
 public:
-    explicit finally(std::function<void ()> action);
-    ~finally();
+	explicit finally(std::function<void ()> action);
+	~finally();
 };
 
 } // namespace raffer

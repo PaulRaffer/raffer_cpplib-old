@@ -3,11 +3,11 @@
 
 auto main() -> int
 {
-    try {
-        raffer::finally f{std::function<void ()>{[]{
-            std::cout << "Hallo";
-        }}};
-    } catch(...) {
-
-    }
+	try {
+		raffer::finally f{std::function<void ()>{[]{
+			std::cout << "Hallo";
+		}}};
+	} catch(...) {
+		
+	}
 }

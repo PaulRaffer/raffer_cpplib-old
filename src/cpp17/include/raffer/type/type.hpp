@@ -47,10 +47,10 @@ namespace raffer // implementation
 template <typename Char, int precision, typename T>
 auto to_basic_string(T value) -> std::basic_string<Char>
 {
-    auto oss = std::basic_ostringstream<Char>{};
-    oss.precision(precision);
-    oss << value;
-    return oss.str();
+	auto oss = std::basic_ostringstream<Char>{};
+	oss.precision(precision);
+	oss << value;
+	return oss.str();
 }
 
 } // namespace raffer
