@@ -13,19 +13,19 @@ namespace raffer // interface
 template <typename T>
 class point_3d : public point<T, 3>
 {
-    using point<T, 3>::point;
-
+	using point<T, 3>::point;
+	
 public:
-    constexpr point_3d(T x, T y, T z);
-
-    [[nodiscard]] auto get_x() const;
-    auto set_x(T x);
-
-    [[nodiscard]] auto get_y() const;
-    auto set_y(T y);
-
-    [[nodiscard]] auto get_z() const;
-    auto set_z(T x);
+	constexpr point_3d(T x, T y, T z);
+	
+	[[nodiscard]] auto get_x() const;
+	auto set_x(T x);
+	
+	[[nodiscard]] auto get_y() const;
+	auto set_y(T y);
+	
+	[[nodiscard]] auto get_z() const;
+	auto set_z(T x);
 };
 
 } // namespace raffer

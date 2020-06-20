@@ -19,11 +19,11 @@ auto to_char_array(char const * char_array) -> char const *
 
 auto to_char_array(wchar_t const * wchar_array) -> char const *
 {
-    auto len = wcslen(wchar_array);
-    auto char_array = new char[len + 1];
-    memset(char_array, 0, len + 1);
-    wcstombs(char_array, wchar_array, len);
-    return char_array;
+	auto len = wcslen(wchar_array);
+	auto char_array = new char[len + 1];
+	memset(char_array, 0, len + 1);
+	wcstombs(char_array, wchar_array, len);
+	return char_array;
 }
 
 
