@@ -215,12 +215,12 @@ auto set_den(fraction<Num, Den> & f, Den && den) noexcept -> void
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
 [[nodiscard]] constexpr auto cmp(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
 {
-	auto const lhs_num = lhs.get_num() * rhs.get_den();
-	auto const lhs_den = rhs.get_num() * lhs.get_den();
-	return
-		lhs_num < lhs_den ? -1 :
-		lhs_num > lhs_den ? 1 :
-		0;
+    auto const lhs_num = lhs.get_num() * rhs.get_den();
+    auto const rhs_num = rhs.get_num() * lhs.get_den();
+    return
+        lhs_num < rhs_num ? -1 :
+        lhs_num > rhs_num ? 1 :
+        0;
 }
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs>
