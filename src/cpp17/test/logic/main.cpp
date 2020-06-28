@@ -215,6 +215,8 @@ auto main() -> int
     bit_nand();
     bit_nor();
 
+    raffer::logical_nor(0, 0, 0);
+
     std::cout << "C++ Standard: " << __cplusplus << std::endl;
 }
 
