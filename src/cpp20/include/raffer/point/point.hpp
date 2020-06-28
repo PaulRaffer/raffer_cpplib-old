@@ -15,18 +15,18 @@ template <typename T, std::size_t D>
 class point
 {
 public:
-    using value_type = T;
-    constexpr static auto dimensions = D;
-
-    constexpr point();
-    constexpr point(std::array<T, D> const & rhs);
-
-
-    [[nodiscard]] auto operator[](int dimension) const;
-    [[nodiscard]] auto& operator[](int dimension);
+	using value_type = T;
+	constexpr static auto dimensions = D;
+	
+	constexpr point();
+	constexpr point(std::array<T, D> const & rhs);
+	
+	
+	[[nodiscard]] auto operator[](int dimension) const;
+	[[nodiscard]] auto& operator[](int dimension);
 
 private:
-    std::array<value_type, dimensions> values;
+	std::array<value_type, dimensions> values;
 };
 
 template <std::size_t dimensions>

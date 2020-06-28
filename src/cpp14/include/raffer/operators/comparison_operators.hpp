@@ -43,10 +43,10 @@ namespace raffer // implementation
 template <typename Lhs, typename Rhs>
 constexpr auto cmp(Lhs const & lhs, Rhs const & rhs)
 {
-    return
-        lhs < rhs ? -1 :
-        rhs < lhs ? 1 :
-        0;
+	return
+		lhs < rhs ? -1 :
+		rhs < lhs ? 1 :
+		0;
 }
 
 template <typename Lhs, typename Rhs>

@@ -25,48 +25,48 @@ namespace raffer // interface
 
 template <typename Char>
 using basic_smatch =
-    regex_namespace::match_results<
-        typename std::basic_string<
-            Char>::const_iterator>;
+	regex_namespace::match_results<
+		typename std::basic_string<
+			Char>::const_iterator>;
 
 
 template <typename Char = char>
 using function_body_ptr =
-    std::function<
-        auto (
-            basic_smatch<Char> const &)
-            -> std::basic_string<Char>>;
+	std::function<
+		auto (
+			basic_smatch<Char> const &)
+			-> std::basic_string<Char>>;
 
 template <typename Char = char>
 using function_body =
-    std::variant<
-        std::basic_string<Char>,
-        function_body_ptr<Char>>;
+	std::variant<
+		std::basic_string<Char>,
+		function_body_ptr<Char>>;
 
 template <typename Char = char>
 using function =
-    std::pair<
-        std::basic_string<Char>,
-        function_body<Char>>;
+	std::pair<
+		std::basic_string<Char>,
+		function_body<Char>>;
 
 template <typename Char = char>
 using unordered_functions =
-    std::unordered_map<
-        std::basic_string<Char>,
-        function_body<Char>>;
+	std::unordered_map<
+		std::basic_string<Char>,
+		function_body<Char>>;
 
 template <typename Char = char>
 using ordered_functions =
-    std::vector<
-        unordered_functions<Char>>;
+	std::vector<
+		unordered_functions<Char>>;
 
 
 template <typename Char = char>
 auto call(
-    function_body<Char> const & this_,
-    ordered_functions<Char> const & functions,
-    basic_smatch<Char> const & arg)
-    -> std::basic_string<Char>;
+	function_body<Char> const & this_,
+	ordered_functions<Char> const & functions,
+	basic_smatch<Char> const & arg)
+	-> std::basic_string<Char>;
 
 } // namespace raffer
 
