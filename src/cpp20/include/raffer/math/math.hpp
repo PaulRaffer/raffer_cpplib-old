@@ -38,20 +38,24 @@ constexpr auto is_even(std::integral auto x) { return !is_odd(x); }
 
 constexpr auto is_prime(std::integral auto x)
 {
-	if (!(x % 2)) return false;
-	for (auto i = 3; i <= sqrt(x); i += 2)
-		if (!(x % i)) return false;
-	return true;
+    if (!(x % 2))
+        return false;
+    for (auto i = 3; i <= sqrt(x); i += 2)
+        if (!(x % i))
+            return false;
+    return true;
 }
 
 constexpr auto prime(std::integral auto x)
 {
-	constexpr auto offset = 0;
-	if (x == offset) return 2;
-	auto p = 3;
-	for (decltype(x) count = offset + 1; count < x; )
-		if (is_prime(p += 2)) ++count;
-	return p;
+    constexpr auto offset = 0;
+    if (x == offset)
+        return 2;
+    auto p = 3;
+    for (decltype(x) count = offset + 1; count < x; )
+        if (is_prime(p += 2))
+            ++count;
+    return p;
 }
 
 
