@@ -43,7 +43,7 @@ auto disable_unicode(FILE * file) -> int
 
 auto enable_unicode_stdio() -> void
 {
-    enable_unicode(stdin);
+	enable_unicode(stdin);
 	enable_unicode(stdout);
 }
 

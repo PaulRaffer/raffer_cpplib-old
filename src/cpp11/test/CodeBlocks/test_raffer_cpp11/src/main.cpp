@@ -3,6 +3,6 @@
 
 int main()
 {
-    raffer::test__::finally::all();
-    std::cin.ignore();
+	raffer::test__::finally::all();
+	std::cin.ignore();
 }
