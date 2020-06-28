@@ -67,22 +67,22 @@ auto set_den(fraction<Num, Den> & f, Den && den) noexcept -> void;
 
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
-[[nodiscard]] constexpr auto const cmp(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
+[[nodiscard]] constexpr auto cmp(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs>
-[[nodiscard]] constexpr auto const cmp(fraction<Lhs_num, Lhs_den> const & lhs, Rhs const & rhs);
+[[nodiscard]] constexpr auto cmp(fraction<Lhs_num, Lhs_den> const & lhs, Rhs const & rhs);
 
 template <typename Lhs, typename Rhs_num, typename Rhs_den>
-[[nodiscard]] constexpr auto const cmp(Lhs const & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
+[[nodiscard]] constexpr auto cmp(Lhs const & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
 
 
 
 
 template <typename Rhs_num, typename Rhs_den>
-[[nodiscard]] constexpr auto const operator+(fraction<Rhs_num, Rhs_den> const & rhs);
+[[nodiscard]] constexpr auto operator+(fraction<Rhs_num, Rhs_den> const & rhs);
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
-[[nodiscard]] constexpr auto const operator+(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
+[[nodiscard]] constexpr auto operator+(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
 auto & operator+=(fraction<Lhs_num, Lhs_den> & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
@@ -91,14 +91,14 @@ template <typename Lhs_num, typename Lhs_den>
 auto & operator++(fraction<Lhs_num, Lhs_den> & lhs);
 
 template <typename Lhs_num, typename Lhs_den>
-auto const operator++(fraction<Lhs_num, Lhs_den> & lhs, int);
+auto operator++(fraction<Lhs_num, Lhs_den> & lhs, int);
 
 
 template <typename Rhs_num, typename Rhs_den>
-[[nodiscard]] constexpr auto const operator-(fraction<Rhs_num, Rhs_den> const & rhs);
+[[nodiscard]] constexpr auto operator-(fraction<Rhs_num, Rhs_den> const & rhs);
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
-[[nodiscard]] constexpr auto const operator-(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
+[[nodiscard]] constexpr auto operator-(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
 auto & operator-=(fraction<Lhs_num, Lhs_den> & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
@@ -107,18 +107,18 @@ template <typename Lhs_num, typename Lhs_den>
 auto & operator--(fraction<Lhs_num, Lhs_den> & lhs);
 
 template <typename Lhs_num, typename Lhs_den>
-auto const operator--(fraction<Lhs_num, Lhs_den> & lhs, int);
+auto operator--(fraction<Lhs_num, Lhs_den> & lhs, int);
 
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
-[[nodiscard]] constexpr auto const operator*(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
+[[nodiscard]] constexpr auto operator*(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
 auto & operator*=(fraction<Lhs_num, Lhs_den> & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
 
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
-[[nodiscard]] constexpr auto const operator/(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
+[[nodiscard]] constexpr auto operator/(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
 auto & operator/=(fraction<Lhs_num, Lhs_den> & lhs, fraction<Rhs_num, Rhs_den> const & rhs);
@@ -213,7 +213,7 @@ auto set_den(fraction<Num, Den> & f, Den && den) noexcept -> void
 
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
-[[nodiscard]] constexpr auto const cmp(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
+[[nodiscard]] constexpr auto cmp(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
 {
     auto const lhs_num = lhs.get_num() * rhs.get_den();
     auto const lhs_den = rhs.get_num() * lhs.get_den();
@@ -224,22 +224,22 @@ template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den
 }
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs>
-[[nodiscard]] constexpr auto const cmp(fraction<Lhs_num, Lhs_den> const & lhs, Rhs const & rhs)
+[[nodiscard]] constexpr auto cmp(fraction<Lhs_num, Lhs_den> const & lhs, Rhs const & rhs)
 { return cmp(lhs, fraction<Rhs>{rhs}); }
 
 template <typename Lhs, typename Rhs_num, typename Rhs_den>
-[[nodiscard]] constexpr auto const cmp(Lhs const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
+[[nodiscard]] constexpr auto cmp(Lhs const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
 { return cmp(fraction<Lhs>{lhs}, rhs); }
 
 
 
 
 template <typename Rhs_num, typename Rhs_den>
-constexpr auto const operator+(fraction<Rhs_num, Rhs_den> const & rhs)
+constexpr auto operator+(fraction<Rhs_num, Rhs_den> const & rhs)
 { return rhs; }
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
-constexpr auto const operator+(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
+constexpr auto operator+(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
 {
     auto num = lhs.get_num() * rhs.get_den() + rhs.get_num() * lhs.get_den();
     auto den = lhs.get_den() * rhs.get_den();
@@ -255,7 +255,7 @@ auto & operator++(fraction<Lhs_num, Lhs_den> & lhs)
 { return lhs += fraction<Lhs_num, Lhs_den>{1}; }
 
 template <typename Lhs_num, typename Lhs_den>
-auto const operator++(fraction<Lhs_num, Lhs_den> & lhs, int)
+auto operator++(fraction<Lhs_num, Lhs_den> & lhs, int)
 {
     auto const old = lhs;
     ++lhs;
@@ -264,7 +264,7 @@ auto const operator++(fraction<Lhs_num, Lhs_den> & lhs, int)
 
 
 template <typename Rhs_num, typename Rhs_den>
-constexpr auto const operator-(fraction<Rhs_num, Rhs_den> const & rhs)
+constexpr auto operator-(fraction<Rhs_num, Rhs_den> const & rhs)
 {
     auto num = -rhs.get_num();
     auto den = rhs.get_den();
@@ -272,7 +272,7 @@ constexpr auto const operator-(fraction<Rhs_num, Rhs_den> const & rhs)
 }
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
-constexpr auto const operator-(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
+constexpr auto operator-(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
 { return lhs + -rhs; };
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
@@ -284,7 +284,7 @@ auto & operator--(fraction<Lhs_num, Lhs_den> & lhs)
 { return lhs -= fraction<Lhs_num, Lhs_den>{1}; }
 
 template <typename Lhs_num, typename Lhs_den>
-auto const operator--(fraction<Lhs_num, Lhs_den> & lhs, int)
+auto operator--(fraction<Lhs_num, Lhs_den> & lhs, int)
 {
     auto const old = lhs;
     --lhs;
@@ -293,7 +293,7 @@ auto const operator--(fraction<Lhs_num, Lhs_den> & lhs, int)
 
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
-constexpr auto const operator*(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
+constexpr auto operator*(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
 {
     auto num = lhs.get_num() * rhs.get_num();
     auto den = lhs.get_den() * rhs.get_den();
@@ -306,7 +306,7 @@ auto & operator*=(fraction<Lhs_num, Lhs_den> & lhs, fraction<Rhs_num, Rhs_den> c
 
 
 template <typename Num, typename Den>
-constexpr auto const reciprocal(fraction<Num, Den> f)
+constexpr auto reciprocal(fraction<Num, Den> f)
 {
     auto const num = f.get_num();
     f.set_num(f.get_den());
@@ -315,7 +315,7 @@ constexpr auto const reciprocal(fraction<Num, Den> f)
 }
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
-constexpr auto const operator/(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
+constexpr auto operator/(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
 { return lhs * reciprocal(rhs); }
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
