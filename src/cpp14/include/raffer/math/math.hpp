@@ -30,19 +30,23 @@ template <typename T> constexpr auto is_even(T x) -> bool { return !is_odd(x); }
 
 template <typename T> constexpr auto is_prime(T x) -> bool
 {
-    if (!(x % 2)) return false;
+    if (!(x % 2))
+        return false;
     for (auto i = 3; i <= sqrt(x); i += 2)
-        if (!(x % i)) return false;
+        if (!(x % i))
+            return false;
     return true;
 }
 
 template <typename T> constexpr auto prime(T x) -> int
 {
     constexpr auto offset = 0;
-    if (x == offset) return 2;
+    if (x == offset)
+        return 2;
     auto p = 3;
     for (decltype(x) count = offset + 1; count < x; )
-        if (is_prime(p += 2)) ++count;
+        if (is_prime(p += 2))
+            ++count;
     return p;
 }
 
