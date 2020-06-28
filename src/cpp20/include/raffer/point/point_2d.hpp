@@ -13,16 +13,16 @@ namespace raffer // interface
 template <typename T>
 class point_2d : point<T, 2>
 {
-    using point<T, 2>::point;
+	using point<T, 2>::point;
 
 public:
-    constexpr point_2d(T x, T y);
+	constexpr point_2d(T x, T y);
 
-    [[nodiscard]] auto get_x() const;
-    auto set_x(T x);
+	[[nodiscard]] auto get_x() const;
+	auto set_x(T x);
 
-    [[nodiscard]] auto get_y() const;
-    auto set_y(T y);
+	[[nodiscard]] auto get_y() const;
+	auto set_y(T y);
 };
 
 } // namespace raffer

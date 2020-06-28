@@ -17,34 +17,31 @@ namespace raffer // interface
 template <typename Rep = std::intmax_t, typename Factor = std::ratio<1>>
 class fixed_point
 {
-    static_assert(std::is_integral<Rep>::value, "Rep has to be an integral type!");
-
-    Rep r;
-
+	static_assert(std::is_integral<Rep>::value, "Rep has to be an integral type!");
+	
+	Rep r;
+	
 public:
 	using rep = Rep;
 	using factor = Factor;
-
+	
 	constexpr fixed_point(Rep r = Rep{});
-    constexpr fixed_point(double value);
-    template <typename Rhs_rep, typename Rhs_factor, typename f = std::ratio_divide<Rhs_factor, Factor>>
-    constexpr fixed_point(fixed_point<Rhs_rep, Rhs_factor> const & rhs);
-
-    constexpr operator double() const;
-
-    [[nodiscard]] constexpr auto get_r() const -> Rep;
+	constexpr fixed_point(double value);
+	template <typename Rhs_rep, typename Rhs_factor, typename f = std::ratio_divide<Rhs_factor, Factor>>
+	constexpr fixed_point(fixed_point<Rhs_rep, Rhs_factor> const & rhs);
+	
+	constexpr operator double() const;
+	
+	[[nodiscard]] constexpr auto get_r() const -> Rep;
 };
 
 //auto operator<<(std::ostream & os, fixed_point const & rhs) -> std::ostream &;
 
 } // namespace raffer
 
-#endif // __cplusplus >= 201402L
 
 
 
-
-#if __cplusplus >= 201402L
 
 namespace raffer // impementation
 {
@@ -75,7 +72,7 @@ auto operator<<(std::ostream & os, fixed_point<Rep, Factor> const & rhs) -> std:
 */
 
 template <typename Rep, typename Factor>
-[[nodiscard]] constexpr auto fixed_point<Rep, Factor>::get_r() const -> Rep
+constexpr auto fixed_point<Rep, Factor>::get_r() const -> Rep
 { return r; }
 
 } // namespace raffer
