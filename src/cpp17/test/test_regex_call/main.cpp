@@ -94,7 +94,7 @@ auto main() -> int
 		{
 			/*auto file = std::basic_ifstream<Char>(raffer::to_basic_string<char>(arg.str(1)));
 			auto script = std::basic_string<Char>{(std::istreambuf_iterator<Char>(file)), std::istreambuf_iterator<Char>()};
-			raffer::basic_cout<Char> << "$$$" << script << "§§§";
+			raffer::basic_cout<Char> << "$$$" << script << "ï¿½ï¿½ï¿½";
 			return raffer::call<Char>(script, func, raffer::basic_smatch<Char>{});*/
 	
 			FILE * file = _wfopen(arg.str(1).c_str(), L"r");
