@@ -21,7 +21,3 @@ PRIORITY  7 c IS std::phys::const::c
 script "std/math.script"
 script "std/logic.script"
 script "std/inout.script"
-
-
-
-

@@ -10,21 +10,21 @@
 namespace raffer // interface
 {
 
-template <typename T> auto logical_not(T && x);
-template <typename... T> auto logical_and(T && ...x);
-template <typename... T> auto logical_or(T && ...x);
-template <typename... T> auto logical_nand(T && ...x);
-template <typename... T> auto logical_nor(T && ...x);
-template <typename... T> auto logical_xor(T && ...x);
-template <typename... T> auto logical_xnor(T && ...x);
+template <typename T> [[nodiscard]] auto logical_not(T && x);
+template <typename... T> [[nodiscard]] auto logical_and(T && ...x);
+template <typename... T> [[nodiscard]] auto logical_or(T && ...x);
+template <typename... T> [[nodiscard]] auto logical_nand(T && ...x);
+template <typename... T> [[nodiscard]] auto logical_nor(T && ...x);
+template <typename... T> [[nodiscard]] auto logical_xor(T && ...x);
+template <typename... T> [[nodiscard]] auto logical_xnor(T && ...x);
 
-template <typename T> auto bit_not(T && x);
-template <typename... T> auto bit_and(T && ...x);
-template <typename... T> auto bit_or(T && ...x);
-template <typename... T> auto bit_nand(T && ...x);
-template <typename... T> auto bit_nor(T && ...x);
-template <typename... T> auto bit_xor(T && ...x);
-template <typename... T> auto bit_xnor(T && ...x);
+template <typename T> [[nodiscard]] auto bit_not(T && x);
+template <typename... T> [[nodiscard]] auto bit_and(T && ...x);
+template <typename... T> [[nodiscard]] auto bit_or(T && ...x);
+template <typename... T> [[nodiscard]] auto bit_nand(T && ...x);
+template <typename... T> [[nodiscard]] auto bit_nor(T && ...x);
+template <typename... T> [[nodiscard]] auto bit_xor(T && ...x);
+template <typename... T> [[nodiscard]] auto bit_xnor(T && ...x);
 
 } // namespace raffer
 
