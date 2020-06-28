@@ -75,7 +75,7 @@ auto operator<<(std::ostream & os, fixed_point<Rep, Factor> const & rhs) -> std:
 */
 
 template <typename Rep, typename Factor>
-[[nodiscard]] constexpr auto fixed_point<Rep, Factor>::get_r() const -> Rep
+constexpr auto fixed_point<Rep, Factor>::get_r() const -> Rep
 { return r; }
 
 } // namespace raffer
