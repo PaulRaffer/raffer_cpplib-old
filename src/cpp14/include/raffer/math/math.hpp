@@ -15,16 +15,14 @@
 namespace raffer // interface
 {
 
-template <typename T> [[nodiscard]] constexpr auto is_odd(T x) -> bool;
-template <typename T> [[nodiscard]] constexpr auto is_even(T x) -> bool;
+template <typename T> constexpr auto is_odd(T x) -> bool;
+template <typename T> constexpr auto is_even(T x) -> bool;
 
-template <typename T> [[nodiscard]] constexpr auto is_prime(T x) -> bool;
-template <typename T> [[nodiscard]] constexpr auto prime(T x) -> int;
+template <typename T> constexpr auto is_prime(T x) -> bool;
+template <typename T> constexpr auto prime(T x) -> int;
 
 
-template <typename T>
-[[nodiscard]] auto digit(T x, int d, int n = 1, int base = 10) -> int;
-
+template <typename T> auto digit(T x, int d, int n = 1, int base = 10) -> int;
 
 } // namespace raffer
 
