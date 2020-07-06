@@ -10,5 +10,9 @@ addons:
       - g++-5
 
 script:
-  - CXX=/usr/bin/g++-5 CC=/usr/bin/gcc-5 cmake ./src/cpp11/test/boost_test
-  - cmake ./src/cpp11/test/boost_test/cmake-build-debug --target boost_test -- -j 4
+  - cd ./src/cpp11/test/boost_test
+  - mkdir cmake-build-debug
+  - cd ./cmake-build-debug
+  - CXX=/usr/bin/g++-5 CC=/usr/bin/gcc-5 cmake ..
+  - cd ..
+  - cmake --build ./cmake-build-debug --target boost_test -- -j 4
