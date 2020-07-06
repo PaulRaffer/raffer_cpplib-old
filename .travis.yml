@@ -9,14 +9,14 @@ addons:
       - sourceline: 'ppa:mhier/libboost-latest'
       - ubuntu-toolchain-r-test
     packages:
-      - g++-7
+      - g++-10
       - boost1.67
 script:
 
   - cd ./src/cpp11/test/boost_test
   - mkdir travis-cmake-build
   - cd ./travis-cmake-build
-  - CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7 cmake ..
+  - CXX=/usr/bin/g++-10 CC=/usr/bin/gcc-10 cmake ..
   - cd ..
 
   - cmake --build ./travis-cmake-build --target boost_test -- -j 4
