@@ -2,5 +2,20 @@ dist: trusty
 sudo: false
 language: cpp
 
+addons:
+  apt:
+    update: true
+    sources:
+      - sourceline: 'ppa:mhier/libboost-latest'
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-6
+      - boost1.67
 script:
-  - cmake ./src/cpp11/test/boost_test/cmake-build-debug --target boost_test -- -j 4
+  - ls /usr/lib
+  - cd ./src/cpp11/test/boost_test
+  - mkdir cmake-build-debug
+  - cd ./cmake-build-debug
+  - CXX=/usr/bin/g++-6 CC=/usr/bin/gcc-6 cmake ..
+  - cd ..
+  - cmake --build ./cmake-build-debug --target boost_test -- -j 4
