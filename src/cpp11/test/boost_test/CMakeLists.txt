@@ -21,7 +21,5 @@ link_directories(
 
 add_executable(boost_test raffer.test.cpp)
 
-target_link_libraries(
-	boost_test libraffer_finally-static.a
-	boost_test libraffer_system-static.a
-)
+target_link_libraries(boost_test libraffer_finally-static.a)
+target_link_libraries(boost_test libraffer_system-static.a)
