@@ -13,15 +13,29 @@ addons:
       - boost1.67
 
 script:
+# library:
+  - ./src/cpp11
   # configure cmake:
-  - cd ./src/cpp11/test/boost_test
-  - mkdir travis-cmake-build
-  - cd ./travis-cmake-build
+  - mkdir build
+  - cd ./build
   - CXX=/usr/bin/g++-9 CC=/usr/bin/gcc-9 cmake ..
   - cd ..
   # build with cmake:
-  - cmake --build ./travis-cmake-build --target boost_test -- -j 4
+  - cmake --build ./build --target raffer_finally-static -- -j 4
+  - cmake --build ./build --target raffer_finally-shared -- -j 4
+  - cmake --build ./build --target raffer_system-static -- -j 4
+  - cmake --build ./build --target raffer_system-shared -- -j 4
+
+# tests:
+  - cd ./test/boost_test
+  # configure cmake:
+  - mkdir build
+  - cd ./build
+  - CXX=/usr/bin/g++-9 CC=/usr/bin/gcc-9 cmake ..
+  - cd ..
+  # build with cmake:
+  - cmake --build ./build --target boost_test -- -j 4
 
 after_success:
   # run tests:
-  - "./travis-cmake-build/boost_test"
+  - "./build/boost_test"
