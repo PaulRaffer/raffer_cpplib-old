@@ -11,11 +11,11 @@
 BOOST_AUTO_TEST_CASE(test_raffer_nested_vector)
 {
 	BOOST_TEST(std::is_same<raffer::nested_t<std::vector, 0, int>, int>::value);
-	BOOST_TEST(std::is_same<raffer::nested_t<std::vector, 1, std::vector<int>>, int>::value);
-	BOOST_TEST(std::is_same<raffer::nested_t<std::vector, 2, std::vector<std::vector<int>>>, int>::value);
-	BOOST_TEST(std::is_same<raffer::nested_t<std::vector, 3, std::vector<std::vector<std::vector<int>>>>, int>::value);
-	BOOST_TEST(std::is_same<raffer::nested_t<std::vector, 4, std::vector<std::vector<std::vector<std::vector<int>>>>>, int>::value);
-	BOOST_TEST(std::is_same<raffer::nested_t<std::vector, 5, std::vector<std::vector<std::vector<std::vector<std::vector<int>>>>>>, int>::value);
+	BOOST_TEST(std::is_same<raffer::nested_t<std::vector, 1, int>, std::vector<int>>::value);
+	BOOST_TEST(std::is_same<raffer::nested_t<std::vector, 2, int>, std::vector<std::vector<int>>>::value);
+	BOOST_TEST(std::is_same<raffer::nested_t<std::vector, 3, int>, std::vector<std::vector<std::vector<int>>>>::value);
+	BOOST_TEST(std::is_same<raffer::nested_t<std::vector, 4, int>, std::vector<std::vector<std::vector<std::vector<int>>>>>::value);
+	BOOST_TEST(std::is_same<raffer::nested_t<std::vector, 5, int>, std::vector<std::vector<std::vector<std::vector<std::vector<int>>>>>>::value);
 }
 
 
