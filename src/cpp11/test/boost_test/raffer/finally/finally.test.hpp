@@ -9,39 +9,39 @@
 
 BOOST_AUTO_TEST_CASE(test_raffer_finally)
 {
-	auto res = 0;
+	auto test = 0;
 	try
 	{
-		res = 1;
+		test = 1;
 		auto f = raffer::finally{
-		[&res]{
-			res = 2;
+		[&test]{
+			test = 2;
 		}};
-		res = 3;
+		test = 3;
 		throw 99;
-		res = 4;
+		test = 4;
 	}
 	catch (int i) {}
-	BOOST_TEST(res == 2);
+	BOOST_TEST(test == 2);
 }
 
 
 
 BOOST_AUTO_TEST_CASE(test_raffer_finally_macro)
 {
-	auto res = 0;
+	auto test = 0;
 	try
 	{
-		res = 1;
+		test = 1;
 		raffer::FINALLY
-			res = 2;
+			test = 2;
 		END
-		res = 3;
+		test = 3;
 		throw 99;
-		res = 4;
+		test = 4;
 	}
 	catch (int i) {}
-	BOOST_TEST(res == 2);
+	BOOST_TEST(test == 2);
 }
 
 
