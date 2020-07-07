@@ -16,4 +16,4 @@ include_directories(
 	${Raffer_INCLUDE_DIR}
 )
 
-add_executable(boost_test main.cpp)
+add_executable(boost_test raffer.test.cpp)
