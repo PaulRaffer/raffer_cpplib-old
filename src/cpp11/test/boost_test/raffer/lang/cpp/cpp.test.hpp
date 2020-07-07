@@ -8,11 +8,22 @@
 
 BOOST_AUTO_TEST_CASE(test_raffer_lang_cpp_version)
 {
-	BOOST_TEST(raffer::lang::cpp::version::cpp20 == 202002L);
-	BOOST_TEST(raffer::lang::cpp::version::cpp17 == 201703L);
-	BOOST_TEST(raffer::lang::cpp::version::cpp14 == 201402L);
-	BOOST_TEST(raffer::lang::cpp::version::cpp11 == 201103L);
-	BOOST_TEST(raffer::lang::cpp::version::cpp98 == 199711L);
+	auto test = long{};
+	
+	test = raffer::lang::cpp::version::cpp20;
+	BOOST_TEST(test == 202002L);
+	
+	test = raffer::lang::cpp::version::cpp17;
+	BOOST_TEST(test == 201703L);
+	
+	test = raffer::lang::cpp::version::cpp14;
+	BOOST_TEST(test == 201402L);
+	
+	test = raffer::lang::cpp::version::cpp11;
+	BOOST_TEST(test == 201103L);
+	
+	test = raffer::lang::cpp::version::cpp98;
+	BOOST_TEST(test == 199711L);
 }
 
 
