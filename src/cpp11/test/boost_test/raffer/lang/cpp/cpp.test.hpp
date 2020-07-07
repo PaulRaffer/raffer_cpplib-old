@@ -10,19 +10,19 @@ BOOST_AUTO_TEST_CASE(test_raffer_lang_cpp_version)
 {
 	auto test = long{};
 	
-	test = raffer::lang::cpp::version::cpp20;
+	test = static_cast<long>(raffer::lang::cpp::version::cpp20);
 	BOOST_TEST(test == 202002L);
 	
-	test = raffer::lang::cpp::version::cpp17;
+	test = static_cast<long>(raffer::lang::cpp::version::cpp17);
 	BOOST_TEST(test == 201703L);
 	
-	test = raffer::lang::cpp::version::cpp14;
+	test = static_cast<long>(raffer::lang::cpp::version::cpp14);
 	BOOST_TEST(test == 201402L);
 	
-	test = raffer::lang::cpp::version::cpp11;
+	test = static_cast<long>(raffer::lang::cpp::version::cpp11);
 	BOOST_TEST(test == 201103L);
 	
-	test = raffer::lang::cpp::version::cpp98;
+	test = static_cast<long>(raffer::lang::cpp::version::cpp98);
 	BOOST_TEST(test == 199711L);
 }
 
