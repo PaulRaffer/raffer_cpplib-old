@@ -16,4 +16,8 @@ include_directories(
 	${Raffer_INCLUDE_DIR}
 )
 
+target_link_libraries(
+	raffer_finally-static ../../build/libraffer_finally-static.a
+)
+
 add_executable(boost_test raffer.test.cpp)
