@@ -3,6 +3,6 @@
 
 
 #include "finally/finally.test.hpp"
-#include "finally/lang.test.hpp"
-#include "finally/nested.test.hpp"
-#include "finally/system.test.hpp"
+#include "lang/lang.test.hpp"
+#include "nested/nested.test.hpp"
+#include "system/system.test.hpp"
