@@ -1,12 +1,14 @@
 #if __cplusplus >= 201103L
 
-#ifndef RAFFER_LANG_CPP_CPP_TEST_HPP
-#define RAFFER_LANG_CPP_CPP_TEST_HPP
+#ifndef TEST_BOOST_RAFFER_LANG_CPP_CPP_TEST_HPP
+#define TEST_BOOST_RAFFER_LANG_CPP_CPP_TEST_HPP
 
 #include <raffer/lang/cpp/cpp.hpp>
 
 
-BOOST_AUTO_TEST_CASE(test_raffer_lang_cpp_version)
+BOOST_AUTO_TEST_SUITE(test_raffer_lang_cpp)
+
+BOOST_AUTO_TEST_CASE(test_raffer_lang_cpp_version_1)
 {
 	auto test = long{};
 	
@@ -26,7 +28,9 @@ BOOST_AUTO_TEST_CASE(test_raffer_lang_cpp_version)
 	BOOST_TEST(test == 199711L);
 }
 
+BOOST_AUTO_TEST_SUITE_END()
 
-#endif // RAFFER_LANG_CPP_CPP_TEST_HPP
+
+#endif // TEST_BOOST_RAFFER_LANG_CPP_CPP_TEST_HPP
 
 #endif // __cplusplus >= 201103L

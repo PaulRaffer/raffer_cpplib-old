@@ -1,14 +1,16 @@
 #if __cplusplus >= 201103L
 
-#ifndef RAFFER_NESTED_NESTED_TEST_HPP
-#define RAFFER_NESTED_NESTED_TEST_HPP
+#ifndef TEST_BOOST_RAFFER_NESTED_NESTED_TEST_HPP
+#define TEST_BOOST_RAFFER_NESTED_NESTED_TEST_HPP
 
 #include <raffer/nested/nested.hpp>
 
 
 #include <vector>
 
-BOOST_AUTO_TEST_CASE(test_raffer_nested_vector)
+BOOST_AUTO_TEST_SUITE(test_raffer_nested)
+
+BOOST_AUTO_TEST_CASE(test_raffer_nested_vector_1)
 {
 	auto test =
 		std::is_same<raffer::nested_t<std::vector, 0, int>, int>::value &&
@@ -20,7 +22,9 @@ BOOST_AUTO_TEST_CASE(test_raffer_nested_vector)
 	BOOST_TEST(test);
 }
 
+BOOST_AUTO_TEST_SUITE_END()
 
-#endif // RAFFER_NESTED_NESTED_TEST_HPP
+
+#endif // TEST_BOOST_RAFFER_NESTED_NESTED_TEST_HPP
 
 #endif // __cplusplus >= 201103L
