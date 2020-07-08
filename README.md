@@ -1,7 +1,8 @@
 # raffer_cpplib
 
-raffer_cpplib is a general-purpose library for modern C++ (11/14/17/20), written by Paul Raffer.
+raffer_cpplib is a general-purpose library for modern C++ (11/14/17/20) written by Paul Raffer.
 
+[![Build Status](https://travis-ci.org/PaulRaffer/raffer_cpplib.svg?branch=master)](https://travis-ci.org/PaulRaffer/raffer_cpplib)
 
 ## Table of Contents
 
