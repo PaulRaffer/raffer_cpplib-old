@@ -1,3 +1,0 @@
-C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/math/fixed_point/build/CMakeFiles/test_math_fixed_point_1.dir
-C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/math/fixed_point/build/CMakeFiles/edit_cache.dir
-C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/math/fixed_point/build/CMakeFiles/rebuild_cache.dir

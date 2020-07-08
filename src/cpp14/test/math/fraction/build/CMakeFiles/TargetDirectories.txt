@@ -1,3 +1,0 @@
-C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/cpp14/test/math/fraction/build/CMakeFiles/math_test1.dir
-C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/cpp14/test/math/fraction/build/CMakeFiles/edit_cache.dir
-C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/cpp14/test/math/fraction/build/CMakeFiles/rebuild_cache.dir

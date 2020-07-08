@@ -13,12 +13,12 @@ addons:
       - boost1.67
 
 script:
+# CPP11:
+  - cd ./cpp11
 # library:
-  - cd ./src/cpp11
   # configure cmake:
   - mkdir build
-  - cd ./build
-  - CXX=/usr/bin/g++-9 CC=/usr/bin/gcc-9 cmake ..
+  - cd ./build && CXX=/usr/bin/g++-9 CC=/usr/bin/gcc-9 cmake ..
   - cd ..
   # build with cmake:
   - cmake --build ./build --target raffer_finally-static -- -j 4
