@@ -1,6 +1,6 @@
 # raffer_cpplib
 
-raffer_cpplib is a general-purpose library for modern C++ (11/14/17/20), written by Paul Raffer.
+raffer_cpplib is a general-purpose library for modern C++ (11/14/17/20) written by Paul Raffer.
 
 
 ## Table of Contents
