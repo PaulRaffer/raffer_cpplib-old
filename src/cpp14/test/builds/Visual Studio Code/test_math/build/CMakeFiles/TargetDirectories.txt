@@ -1,3 +1,0 @@
-C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/builds/Visual Studio Code/test_math/build/CMakeFiles/test_math.dir
-C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/builds/Visual Studio Code/test_math/build/CMakeFiles/edit_cache.dir
-C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/builds/Visual Studio Code/test_math/build/CMakeFiles/rebuild_cache.dir

@@ -1,7 +1,0 @@
-[
-{
-  "directory": "C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/math/fixed_point/build",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1   /FoCMakeFiles\\test_math_fixed_point_1.dir\\main.cpp.obj /FdTARGET_COMPILE_PDB -c C:\\Users\\Paul\\Paul\\Projekte\\raffer_cpplib\\src\\test\\math\\fixed_point\\main.cpp",
-  "file": "C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/math/fixed_point/main.cpp"
-}
-]

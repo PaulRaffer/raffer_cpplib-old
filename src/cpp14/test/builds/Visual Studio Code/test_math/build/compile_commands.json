@@ -1,7 +1,0 @@
-[
-{
-  "directory": "C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/builds/Visual Studio Code/test_math/build",
-  "command": "C:/CodeBlocks/gcc-8.2-32/bin/c++.exe    -g   -o CMakeFiles/test_math.dir/C_/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/test_math/main.cpp.obj -c C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/test_math/main.cpp",
-  "file": "C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/test/test_math/main.cpp"
-}
-]

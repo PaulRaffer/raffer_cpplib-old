@@ -1,7 +1,0 @@
-[
-{
-  "directory": "C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/cpp17/test/logic/build",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP   /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1   -std:c++17 /FoCMakeFiles\\test_logic.dir\\main.cpp.obj /FdTARGET_COMPILE_PDB -c C:\\Users\\Paul\\Paul\\Projekte\\raffer_cpplib\\src\\cpp17\\test\\logic\\main.cpp",
-  "file": "C:/Users/Paul/Paul/Projekte/raffer_cpplib/src/cpp17/test/logic/main.cpp"
-}
-]
