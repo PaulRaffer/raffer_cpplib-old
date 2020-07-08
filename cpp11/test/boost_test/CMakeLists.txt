@@ -9,10 +9,12 @@ endif()
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(Boost_INCLUDE_DIR "C:/Program Files/boost/boost_1_73_0")
+set(Boost_INCLUDE_DIR_termux "/data/data/com.termux/files/usr/lib/boost_1_73_0")
+set(Boost_INCLUDE_DIR_windows "C:/Program Files/boost/boost_1_73_0")
 set(Raffer_INCLUDE_DIR "../../include")
 include_directories(
-	${Boost_INCLUDE_DIR}
+	${Boost_INCLUDE_DIR_termux}
+	${Boost_INCLUDE_DIR_windows}
 	${Raffer_INCLUDE_DIR}
 )
 link_directories(
