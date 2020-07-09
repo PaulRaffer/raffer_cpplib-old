@@ -36,6 +36,5 @@ script:
   # build with cmake:
   - cmake --build ./build --target boost_test -- -j 4
 
-after_success:
   # run tests:
   - "./build/boost_test"
