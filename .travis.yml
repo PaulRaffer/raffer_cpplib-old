@@ -13,4 +13,4 @@ addons:
       - boost1.67
 
 script:
-  - sh ./test-linux.sh
+  - sh ./test-travis.sh
