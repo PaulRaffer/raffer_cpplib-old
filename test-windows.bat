@@ -1,4 +1,4 @@
-rem @echo off
+@echo off
 
 cd ./cpp17
 call test-windows.bat
