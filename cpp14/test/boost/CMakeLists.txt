@@ -28,5 +28,4 @@ add_executable(test_boost_raffer-static
 	raffer/math/fraction/fraction.test.cpp
 	raffer/operators/arithmetic_operators.test.cpp
 	raffer/operators/comparison_operators.test.cpp
-	raffer/overload_set/overload_set.test.cpp
 )

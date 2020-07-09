@@ -1,4 +1,4 @@
-#if __cplusplus >= 201402L
+#if __cplusplus >= 201702L
 
 #ifndef RAFFER_OVERLOAD_SET_OVERLOAD_SET_HPP
 #define RAFFER_OVERLOAD_SET_OVERLOAD_SET_HPP
@@ -15,4 +15,4 @@ template <typename... F> overload_set(F&&...) -> overload_set<F...>;
 
 #endif // RAFFER_OVERLOAD_SET_OVERLOAD_SET_HPP
 
-#endif // __cplusplus >= 201402L
+#endif // __cplusplus >= 201702L
