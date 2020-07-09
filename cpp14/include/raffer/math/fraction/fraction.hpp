@@ -273,7 +273,7 @@ constexpr auto operator-(fraction<Rhs_num, Rhs_den> const & rhs)
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
 constexpr auto operator-(fraction<Lhs_num, Lhs_den> const & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
-{ return lhs + -rhs; };
+{ return lhs + -rhs; }
 
 template <typename Lhs_num, typename Lhs_den, typename Rhs_num, typename Rhs_den>
 auto & operator-=(fraction<Lhs_num, Lhs_den> & lhs, fraction<Rhs_num, Rhs_den> const & rhs)
