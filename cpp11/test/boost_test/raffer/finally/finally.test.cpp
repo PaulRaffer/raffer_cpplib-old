@@ -6,7 +6,9 @@
 #include <raffer/finally/macros.hpp>
 
 
-BOOST_AUTO_TEST_CASE(test_raffer_finally)
+BOOST_AUTO_TEST_SUITE(test_raffer_finally)
+
+BOOST_AUTO_TEST_CASE(test_raffer_finally_1)
 {
 	auto test = 0;
 	try
@@ -25,8 +27,7 @@ BOOST_AUTO_TEST_CASE(test_raffer_finally)
 }
 
 
-
-BOOST_AUTO_TEST_CASE(test_raffer_finally_macro)
+BOOST_AUTO_TEST_CASE(test_raffer_finally_macro_1)
 {
 	auto test = 0;
 	try
@@ -42,6 +43,8 @@ BOOST_AUTO_TEST_CASE(test_raffer_finally_macro)
 	catch (int i) {}
 	BOOST_TEST(test == 2);
 }
+
+BOOST_AUTO_TEST_SUITE_END()
 
 
 #endif // __cplusplus >= 201103L

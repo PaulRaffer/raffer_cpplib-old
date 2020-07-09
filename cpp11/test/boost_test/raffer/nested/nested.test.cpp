@@ -7,7 +7,9 @@
 
 #include <vector>
 
-BOOST_AUTO_TEST_CASE(test_raffer_nested_vector)
+BOOST_AUTO_TEST_SUITE(test_raffer_nested)
+
+BOOST_AUTO_TEST_CASE(test_raffer_nested_vector_1)
 {
 	auto test =
 		std::is_same<raffer::nested_t<std::vector, 0, int>, int>::value &&
@@ -18,6 +20,8 @@ BOOST_AUTO_TEST_CASE(test_raffer_nested_vector)
 		std::is_same<raffer::nested_t<std::vector, 5, int>, std::vector<std::vector<std::vector<std::vector<std::vector<int>>>>>>::value;
 	BOOST_TEST(test);
 }
+
+BOOST_AUTO_TEST_SUITE_END()
 
 
 #endif // __cplusplus >= 201103L

@@ -5,7 +5,9 @@
 #include <raffer/lang/cpp/cpp.hpp>
 
 
-BOOST_AUTO_TEST_CASE(test_raffer_lang_cpp_version)
+BOOST_AUTO_TEST_SUITE(test_raffer_lang_cpp)
+
+BOOST_AUTO_TEST_CASE(test_raffer_lang_cpp_version_1)
 {
 	auto test = long{};
 	
@@ -24,6 +26,8 @@ BOOST_AUTO_TEST_CASE(test_raffer_lang_cpp_version)
 	test = static_cast<long>(raffer::lang::cpp::version::cpp98);
 	BOOST_TEST(test == 199711L);
 }
+
+BOOST_AUTO_TEST_SUITE_END()
 
 
 #endif // __cplusplus >= 201103L
