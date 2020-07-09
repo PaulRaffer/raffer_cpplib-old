@@ -1,7 +1,6 @@
 #if __cplusplus >= 201103L
 
-#ifndef RAFFER_FINALLY_FINALLY_TEST_HPP
-#define RAFFER_FINALLY_FINALLY_TEST_HPP
+#include <boost/test/unit_test.hpp>
 
 #include <raffer/finally/finally.hpp>
 #include <raffer/finally/macros.hpp>
@@ -44,7 +43,5 @@ BOOST_AUTO_TEST_CASE(test_raffer_finally_macro)
 	BOOST_TEST(test == 2);
 }
 
-
-#endif // RAFFER_FINALLY_FINALLY_TEST_HPP
 
 #endif // __cplusplus >= 201103L

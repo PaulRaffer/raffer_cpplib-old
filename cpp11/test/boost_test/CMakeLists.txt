@@ -21,7 +21,13 @@ link_directories(
 	../../build
 )
 
-add_executable(boost_test raffer/raffer.test.cpp)
+add_executable(boost_test
+	raffer/raffer.test.cpp
+	raffer/finally/finally.test.cpp
+	raffer/lang/cpp/cpp.test.cpp
+	raffer/nested/nested.test.cpp
+	raffer/system/system.test.cpp
+)
 
 target_link_libraries(boost_test libraffer_finally-static.a)
 target_link_libraries(boost_test libraffer_system-static.a)
