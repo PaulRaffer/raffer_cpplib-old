@@ -1,7 +1,6 @@
 #if __cplusplus >= 201103L
 
-#ifndef RAFFER_NESTED_NESTED_TEST_HPP
-#define RAFFER_NESTED_NESTED_TEST_HPP
+#include <boost/test/unit_test.hpp>
 
 #include <raffer/nested/nested.hpp>
 
@@ -20,7 +19,5 @@ BOOST_AUTO_TEST_CASE(test_raffer_nested_vector)
 	BOOST_TEST(test);
 }
 
-
-#endif // RAFFER_NESTED_NESTED_TEST_HPP
 
 #endif // __cplusplus >= 201103L
