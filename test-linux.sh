@@ -1,3 +1,11 @@
-sh ./cpp17/test-linux.sh
-sh ./cpp14/test-linux.sh
-sh ./cpp11/test-linux.sh
+cd ./cpp17
+sh test-windows.bat
+cd ..
+
+cd ./cpp14
+sh test-windows.bat
+cd ..
+
+cd ./cpp11
+sh test-windows.bat
+cd ..
