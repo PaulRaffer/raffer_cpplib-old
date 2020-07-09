@@ -11,7 +11,8 @@
 namespace raffer // interface
 {
 
-constexpr auto equ(auto a, auto b);
+template <typename T1, typename T2>
+[[nodiscard]] constexpr auto equ(T1 && a, T2 && b);
 
 } // namespace raffer
 
@@ -22,7 +23,8 @@ constexpr auto equ(auto a, auto b);
 namespace raffer // implementation
 {
 
-constexpr auto equ(auto a, auto b){ return a == b; }
+template <typename T1, typename T2>
+constexpr auto equ(T1 && a, T2 && b){ return std::forward<T1>(a) == std::forward<T2>(b); }
 
 } // namespace raffer
 
