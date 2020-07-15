@@ -7,7 +7,5 @@ auto main() -> int
 		raffer::finally f{std::function<void ()>{[]{
 			std::cout << "Hallo";
 		}}};
-	} catch(...) {
-		
-	}
+	} catch(...) {}
 }

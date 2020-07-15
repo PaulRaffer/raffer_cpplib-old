@@ -12,5 +12,4 @@ auto main() -> int
     //p2.set_z(9);
     std::cout << p2.get_y();
     std::cout << raffer::point_3d<int>::dimensions;
-
 }

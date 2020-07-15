@@ -120,6 +120,4 @@ int main()
     std::cout << h << std::endl;
 
     std::cout << raffer::is_type_list<types>::value;
-
-
 }
