@@ -38,10 +38,8 @@ template <typename T> constexpr auto is_even(T x) -> bool { return !is_odd(x); }
 
 template <typename T> constexpr auto is_prime(T x) -> bool
 {
-	if (!(x % 2))
-		return false;
 	for (auto i = 3; i <= sqrt(x); i += 2)
-		if (!(x % i))
+		if (x % i == 0)
 			return false;
 	return true;
 }
