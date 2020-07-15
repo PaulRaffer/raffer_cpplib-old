@@ -7,7 +7,23 @@
 
 BOOST_AUTO_TEST_SUITE(test_raffer_overload_set)
 
-// TODO
+auto d(double) { return 'd'; }
+
+struct c { auto operator()(char) { return 'c'; } };
+
+BOOST_AUTO_TEST_CASE(overload_set)
+{
+    auto functions = raffer::overload_set
+    {
+        [](int) { return 'i'; },
+		std::function{d},
+		std::function{c{}},
+    };
+	
+	BOOST_TEST((functions(7) == 'i'));
+	BOOST_TEST((functions(7.0) == 'd'));
+	BOOST_TEST((functions('7') == 'c'));
+}
 
 BOOST_AUTO_TEST_SUITE_END()
 

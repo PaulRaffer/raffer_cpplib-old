@@ -22,9 +22,8 @@ link_directories(
 )
 
 add_executable(test_boost_raffer-static
-	raffer/container/is_container.test.cpp
-	raffer/container/is_stl_container.test.cpp
 	raffer/raffer.test.cpp
+	raffer/container/container.test.cpp
 	raffer/logic/logic.test.cpp
 	raffer/overload_set/overload_set.test.cpp
 	raffer/regex/call/call.test.cpp
