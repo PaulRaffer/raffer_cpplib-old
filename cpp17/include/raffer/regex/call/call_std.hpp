@@ -137,7 +137,6 @@ auto std_basic_func_fprint(basic_smatch<Char> const & arg) -> std::basic_string<
 		file.close();
 	}
 	return to_basic_string<Char>("");
-
 }
 
 template <typename Char>
