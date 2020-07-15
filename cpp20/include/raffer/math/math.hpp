@@ -3,9 +3,9 @@
 #ifndef RAFFER_MATH_MATH_HPP
 #define RAFFER_MATH_MATH_HPP
 
-#define raffer_cpplib_math__          202006L
+#define raffer_cpplib_math__          202007L
 #define raffer_cpplib_math_odd_even__ 202005L
-#define raffer_cpplib_math_prime__    202005L
+#define raffer_cpplib_math_prime__    202007L
 #define raffer_cpplib_math_digit__    202006L
 
 
