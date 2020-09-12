@@ -7,7 +7,7 @@ else()
 	add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
 add_library(raffer_regex_call-static STATIC include/raffer/regex/call/call.cpp include/raffer/regex/call/call.hpp)
 add_library(raffer_regex_call-shared SHARED include/raffer/regex/call/call.cpp include/raffer/regex/call/call.hpp)
