@@ -36,19 +36,18 @@ auto call(
 	
 				func_found = false;
 				{
-					auto next_match_pos = std::numeric_limits<typename basic_smatch<Char>::difference_type>::max();
-					for (auto const & f : *fg)
-						if (auto match = basic_smatch<Char>{};
-							regex_search(ret, match,
-							regex_namespace::basic_regex<Char>(f.first),
-							regex_namespace::regex_constants::format_first_only) &&
-							match.position() < next_match_pos)
-						{
-							func = f;
-							func_found = true;
-							if ((next_match_pos = (next_match = match).position()) == 0)
-								break;
-						}
+				auto next_match_pos = std::numeric_limits<typename basic_smatch<Char>::difference_type>::max();
+				for (auto const & f : *fg)
+					if (regex_search(ret, next_match,
+						regex_namespace::basic_regex<Char>(f.first),
+						regex_namespace::regex_constants::format_first_only) &&
+						next_match.position() < next_match_pos)
+					{
+						func = f;
+						func_found = true;
+						if ((next_match_pos = next_match.position()) == 0)
+							break;
+					}
 				}
 	
 				if(func_found)
